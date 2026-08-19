@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Festival Komisyonu · Bizimkent FEST</title>
+<meta name="description" content="Bizimkent FEST Festival Komisyonu — festivali hayata geçiren komşularımızı tanıyın.">
+<link rel="icon" type="image/png" href="img/bizimkent-fest-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#F0403A; --blue:#0E9DE0; --green:#3DAE3A; --yellow:#FFC220;
+  --orange:#F5871F; --purple:#7B3FA0; --navy:#141C4E; --pink:#EC4899;
+  --ink:#161618; --muted:#6b6b72; --line:#e7e3da;
+  --bg:#FBF8F1; --card:#ffffff;
+  --maxw:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:'Poppins',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+h1,h2,h3{letter-spacing:-.03em;line-height:1.04;font-weight:700}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+::selection{background:var(--yellow)}
+.eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:middle}
+
+.btn{display:inline-flex;align-items:center;gap:.5em;font-weight:600;font-size:.95rem;padding:13px 24px;border-radius:100px;background:var(--ink);color:#fff;transition:transform .18s ease,background .18s;border:1.5px solid var(--ink)}
+.btn:hover{transform:translateY(-2px)}
+.btn--ghost{background:transparent;color:var(--ink)}
+.btn--ghost:hover{background:var(--ink);color:#fff}
+.btn--red{background:var(--red);border-color:var(--red)}
+
+/* nav */
+header{position:sticky;top:0;z-index:900;background:rgba(251,248,241,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:20px;max-width:var(--maxw);margin:0 auto;padding:14px 26px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.02em}
+.brand img{height:40px}
+.brand small{display:block;font-weight:600;font-size:.62rem;letter-spacing:.18em;color:var(--muted)}
+.nav-links{display:flex;gap:4px;margin-left:auto;align-items:center}
+.nav-links a{font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:8px 12px;border-radius:8px;transition:.15s}
+.nav-links a:hover,.nav-links a.active{color:var(--ink);background:rgba(0,0,0,.04)}
+.nav-links .btn{margin-left:8px;padding:9px 18px;font-size:.85rem;color:#fff}
+.burger{display:none;margin-left:auto;background:none;border:1.5px solid var(--ink);border-radius:10px;width:46px;height:42px;font-size:1.2rem;cursor:pointer}
+.ic-svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.burger .ic-svg{width:22px;height:22px}
+@media(max-width:1000px){
+  .nav-links{position:fixed;inset:70px 14px auto 14px;flex-direction:column;background:var(--card);padding:14px;border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.12);display:none;align-items:stretch}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px;font-size:1rem}
+  .burger{display:block}
+}
+
+/* page hero */
+.phero{padding:56px 0 34px;position:relative;overflow:hidden}
+.phero .glow{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;z-index:0}
+.phero .wrap{position:relative;z-index:1}
+.crumb{font-size:.85rem;color:var(--muted);font-weight:500;margin-bottom:18px}
+.crumb a:hover{color:var(--ink)}
+.phero h1{font-size:clamp(2.6rem,7vw,4.8rem);font-weight:800;letter-spacing:-.04em;margin:10px 0 6px}
+.phero h1 .em{font-family:'Instrument Serif';font-style:italic;font-weight:400;letter-spacing:0}
+.phero .lead{font-size:1.12rem;color:#3a3a42;max-width:64ch;margin-top:12px}
+.phero .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.tagpill{font-size:.82rem;font-weight:500;padding:8px 15px;border-radius:100px;border:1px solid var(--line);background:var(--card);display:inline-flex;gap:8px;align-items:center}
+
+/* people */
+.people{padding:20px 0 40px}
+.person{display:grid;grid-template-columns:330px 1fr;gap:46px;padding:50px 0;border-top:1px solid var(--line);align-items:start}
+.person:first-child{border-top:none}
+@media(min-width:901px){
+  .person.rev .ph-col{order:2}
+}
+.ph-col{width:330px;max-width:100%}
+.ph-col .frame{aspect-ratio:4/5;width:100%;border-radius:22px;overflow:hidden;border:1px solid var(--line);display:grid;place-content:center;position:relative;box-shadow:0 22px 46px rgba(0,0,0,.10)}
+.ph-col .frame img,.ph-col>img{width:100%;height:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;position:absolute;inset:0;border-radius:22px}
+.ph-col>img{position:static;border:1px solid var(--line);box-shadow:0 22px 46px rgba(0,0,0,.10)}
+.ph-col .frame .ph-inner{display:grid;place-items:center;gap:12px;color:#fff;text-align:center;padding:20px;z-index:1}
+.ph-col .frame .ini{font-size:3.6rem;font-weight:800;letter-spacing:-.04em;line-height:1;width:104px;height:104px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-content:center;border:2px solid rgba(255,255,255,.55)}
+.ph-col .frame .ph-note{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.9;font-weight:600}
+.ph-col .cap{text-align:center;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+.person .info .role{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;padding:6px 14px;border-radius:100px;margin-bottom:14px}
+.person .info h2{font-size:clamp(1.7rem,3.6vw,2.4rem);font-weight:800;letter-spacing:-.03em}
+.person .info .bio{margin-top:10px}
+.person .info .bio p{margin-top:14px;color:#3a3a42;font-size:1.03rem}
+.person .info .bio p:first-child{margin-top:16px}
+.person.lead .info h2{font-size:clamp(2rem,4.4vw,2.9rem)}
+.person.lead .ph-col .frame{border:2px solid var(--red);box-shadow:0 24px 50px rgba(240,64,58,.20)}
+@media(max-width:900px){
+  .person{grid-template-columns:1fr;gap:22px}
+  .ph-col{max-width:300px}
+}
+
+/* cta */
+.cta{margin:20px auto 30px}
+.cta-card{background:var(--navy);color:#fff;border-radius:26px;padding:44px 38px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.cta-card h3{font-size:clamp(1.6rem,3.6vw,2.3rem);font-weight:800;letter-spacing:-.03em}
+.cta-card h3 .em{font-family:'Instrument Serif';font-style:italic;font-weight:400;color:var(--yellow)}
+.cta-card p{color:rgba(255,255,255,.75);margin-top:8px;max-width:46ch}
+.cta-card .btn--red{color:#fff}
+
+/* footer */
+footer{background:var(--navy);color:#fff;padding:64px 0 34px;margin-top:40px}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:30px}
+.foot .b img{height:140px;margin-bottom:16px}
+.foot .b p{color:rgba(255,255,255,.72);font-size:.9rem;max-width:38ch}
+.foot .b p b{color:#fff}
+.foot h5{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:14px}
+.foot ul{list-style:none;display:grid;gap:9px}
+.foot ul a{font-size:.92rem;color:rgba(255,255,255,.82);font-weight:500}
+.foot ul a:hover{color:var(--yellow)}
+.foot .soc{display:flex;gap:10px;margin-top:14px}
+.foot .soc a{width:42px;height:42px;border-radius:12px;border:1px solid rgba(255,255,255,.22);display:grid;place-content:center;font-size:1.05rem;transition:.15s}
+.foot .soc a:hover{background:rgba(255,255,255,.14)}
+.copy{margin-top:38px;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.82rem;color:rgba(255,255,255,.6)}
+@media(max-width:760px){.foot{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <a href="index.html" class="brand"><img src="img/bizimkent-fest-logo.png" alt="Bizimkent FEST"><span>BİZİMKENT FEST</span></a>
+    <button class="burger" id="burger" aria-label="Menü"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html#hakkinda">Festival</a>
+      <a href="index.html#harita">Festival Alanı</a>
+      <a href="index.html#etkinlikler">Etkinlikler</a>
+      <a href="index.html#program">Program</a>
+      <a href="komisyon.html" class="active">Komisyon</a>
+      <a href="galeri.html">Galeri</a>
+      <a href="index.html#sponsorlar">Sponsorlar</a>
+      <a href="index.html#iletisim">İletişim</a>
+      <a href="index.html#basvuru" class="btn btn--red">Başvur</a>
+    </div>
+  </nav>
+</header>
+
+<!-- PAGE HERO -->
+<section class="phero">
+  <div class="glow" style="width:340px;height:340px;background:rgba(240,64,58,.18);top:-60px;left:-40px"></div>
+  <div class="glow" style="width:300px;height:300px;background:rgba(14,157,224,.18);top:-20px;right:-40px"></div>
+  <div class="wrap">
+    <div class="crumb reveal"><a href="index.html">Ana Sayfa</a> · Festival Komisyonu</div>
+    <div class="reveal"><span class="eyebrow">Festival Komisyonu</span>
+      <h1>Perde arkasının <span class="em">kahramanları</span></h1>
+      <p class="lead">Bizimkent FEST'i hayata geçiren komşularımız. Sanatın, müziğin, sporun ve komşuluk kültürünün buluştuğu bu festivali gönüllülükle birlikte kuruyorlar.</p>
+      <div class="meta">
+        <span class="tagpill"><span class="dot" style="background:var(--red)"></span> 8 Komisyon Üyesi</span>
+        <span class="tagpill"><span class="dot" style="background:var(--blue)"></span> Birlikte Üretim</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PEOPLE -->
+<div class="wrap">
+  <div class="people">
+
+    <!-- Murat GÖNÜLLÜ -->
+    <div class="person lead reveal">
+      <div class="ph-col">
+        <div class="frame" style="background:linear-gradient(150deg,#F0403A,#F5871F)">
+          <img src="img/komisyon/murat-gonullu.jpg" alt="Murat Gönüllü">
+        </div>
+      </div>
+      <div class="info">
+        <span class="role" style="background:var(--red)"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none" style="width:1em;height:1em;vertical-align:-2px;margin-right:4px" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Festival Komisyon Başkanı</span>
+        <h2>Murat GÖNÜLLÜ</h2>
+        <div class="bio">
+          <p>Murat Gönüllü; Yönetmen, Sosyolog ve Sanatçı olarak Bizimkent FEST komisyon başkanıdır. Sanat, kültür ve toplumsal yaşamın kesişiminde çalışmalarını sürdüren Gönüllü, Bizimkent FEST'in planlama, organizasyon ve iletişim süreçlerine liderlik ederek; komşuluk kültürünü, sanatı, müziği ve sosyal yaşamı bir araya getiren bir festival anlayışının geliştirilmesine öncülük etmektedir.</p>
+          <p>Aynı zamanda kurucusu olduğu AjansLabs aracılığıyla Bizimkent FEST'e; marka iletişimi, yaratıcı içerik, dijital medya, tasarım ve organizasyon alanlarında çok yönlü ajans sponsorluğu desteği sunmaktadır.</p>
+          <p>Bizimkent FEST ile hedefimiz yalnızca bir festival düzenlemek değil; komşuluğun, kültürün ve sanatın buluştuğu kalıcı bir değer yaratmak ve Bizimkent'te birlikte yaşama kültürüne öncülük etmektir.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- İshak AKBAY -->
+    <div class="person rev reveal">
+      <div class="ph-col">
+        <div class="frame" style="background:linear-gradient(150deg,#0E9DE0,#0B6FB8)">
+          <img src="img/komisyon/ishak-akbay.jpg" alt="İshak Akbay">
+        </div>
+      </div>
+      <div class="info">
+        <span class="role" style="background:var(--blue)">Komisyon Üyesi & Sunucu</span>
+        <h2>İshak AKBAY</h2>
+        <div class="bio">
+          <p>Sanatçı kimliği, sahne enerjisi ve güçlü sunumuyla kültür-sanat etkinliklerinin aranan isimlerinden olan İshak Akbay, Bizimkent FEST komisyonunda yer alarak festivalin hazırlık ve sunum süreçlerine değer katıyor.</p>
+          <p>Müziğe ve sahne sanatlarına olan tutkusunu toplumsal etkinliklerle buluşturan Akbay; sahnede kurduğu samimi iletişim, dinamik sunum tarzı ve kültürel zenginliği yansıtan performanslarıyla izleyicilere unutulmaz anlar yaşatıyor.</p>
+          <p>Bizimkent FEST'in coşkusunu, birleştirici ruhunu ve sanat dolu atmosferini hem festival komisyonundaki katkılarıyla hem de sahnede üstlendiği sunumuyla güçlendiren İshak Akbay, festivale profesyonel dokunuşu ve sahne tecrübesiyle renk katmaya devam ediyor.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barış AKENGİN -->
+    <div class="person reveal">
+      <div class="ph-col">
+        <div class="frame" style="background:linear-gradient(150deg,#3DAE3A,#2C8A2A)">
+          <img src="img/komisyon/baris-akengin.jpg" alt="Barış Akengin">
+        </div>
+      </div>
+      <div class="info">
+        <span class="role" style="background:var(--green)">Komisyon Üyesi</span>
+        <h2>Barış AKENGİN</h2>
+        <div class="bio">
+          <p>Kültür-sanat alanında organizasyonlardan sorumlu olarak görev almaktadır; çeşitli konserler, şiir etkinlikleri ve söyleşilerle birlikte bazı sanatçılarla koordinasyon hâlinde çalışmalarını yürütmektedir. Amacı, Bizimkent FEST ile tüm komşular ve gençlerle keyifli bir festivalin parçası olmaktır.</p>
+          <p>Aynı zamanda tiyatro oyuncusu ve yönetmeni, DİAPASON grubunun üyelerindendir. Bizimkent FEST ile keyifli, eğlenceli bir AN ortamı geçirmek dileğiyle. 💜🙏</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Derya ALKAŞ -->
+    <div class="person rev reveal">
+      <div class="ph-col">
+        <div class="frame" style="background:linear-gradient(150deg,#7B3FA0,#EC4899)">
+          <img src="img/komisyon/derya-alkas.jpg" alt="Derya Alkaş">
+        </div>
+      </div>
+      <div class="info">
+        <span class="role" style="background:var(--purple)">Komisyon Üyesi</span>
+        <h2>Derya ALKAŞ</h2>
+        <div class="bio">
+          <p>Sponsorluk görüşmeleri, workshop çalışmaları ve stand alanlarının yönetimi süreçlerinde görev alan Derya Alkaş; farklı kişi, kurum ve markaları festival çatısı altında buluşturmayı, yaratıcı fikirleri hayata geçirmeyi ve festival deneyimini zenginleştirmeyi amaçlamaktadır.</p>
+          <p>Bizimkent FEST'in yalnızca bir etkinlik değil; komşuluk ilişkilerini güçlendiren, birlikte üreten ve paylaşan bir festival kültürüne dönüşmesine katkı sunmaktadır.</p>
+          <p>Çocuklardan gençlere, yetişkinlerden ileri yaş gruplarına kadar herkesin kendisini ait hissedebileceği; üretimin, dayanışmanın ve eğlencenin bir arada olduğu bir festival için çalışmaktadır. Birlikte üretiyor, birlikte paylaşıyor, birlikte büyüyoruz. 💜</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Semra OKAY -->
+    <div class="person reveal">
+      <div class="ph-col">
+        <div class="frame" style="background:linear-gradient(150deg,#F5871F,#FFC220)">
+          <img src="img/komisyon/semra-okay.jpg" alt="Semra Okay">
+        </div>
+      </div>
+      <div class="info">
+        <span class="role" style="background:var(--orange)">Komisyon Üyesi</span>
+        <h2>Semra OKAY</h2>
+        <div class="bio">
+          <p>Sanat, üretim ve gönüllülüğü bir araya getiren Semra Okay, 1993–2003 yılları arasında Şahinler Holding'de stilist olarak görev yaptı. 2016'dan bu yana katıldığı kurslarla edindiği bilgi ve becerileri yaratıcılığıyla birleştirerek üretmeye devam ediyor.</p>
+          <p>Bizimkent Derneği'nin sosyal sorumluluk projelerinde gönüllü olarak görev yaptı. 2018'den bu yana Bizimkent Türk Müziği Topluluğu'nda aktif olarak yer alan Okay, hâlen Koro Başkanı olarak görevini sürdürüyor. Bizimkent FEST Komisyonu'nda ise çocuklar ve yetişkinler için eğlenceli, yaratıcı yarışmalar hazırlayarak festivalin enerjisine katkı sunmayı hedefliyor.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Erkut ÖZGANİ -->
+    <div class="person rev reveal">
+      <div class="ph-col">
+        <div class="frame" style="background:linear-gradient(150deg,#141C4E,#0B6FB8)">
+          <img src="img/komisyon/erkut-ozgani.jpg" alt="Erkut Özgani">
+        </div>
+      </div>
+      <div class="info">
+        <span class="role" style="background:var(--navy)">Komisyon Üyesi · Spor Sorumlusu</span>
+        <h2>Erkut ÖZGANİ</h2>
+        <div class="bio">
+          <p>İktisat mezunu olan Özgani; uzun yıllar muhasebe, finans ve yatırım uzmanlığından sonra, 17 yıldır profesyonel konut site yöneticisidir. Çok yönlü ve dinamik bir yaşam süren Özgani; eski Eczacıbaşı voleybolcusu, voleybol koçu, Uzak Doğu sporcusu, CMAS 2 Yıldız Scuba ve bröveli Dağcı Jandarma Komandodur.</p>
+          <p>Sanata olan tutkusunu 10 yılı aşkın dizi/reklam oyunculuğu ve tiyatro eğitimleriyle taçlandıran Özgani, hobisini profesyonel fotoğrafçılığa taşımıştır. Sahibi olduğu BESS PHOTO markasıyla festivalimizin gönüllü sponsoru olmuştur. Organizasyonun sponsorluk ve teknik altyapı süreçlerine yaratıcı fikirleriyle destek veren komşumuz, festival kapsamındaki adalar arası voleybol ve basketbol turnuvalarının da fikir babası ve spor sorumlusudur.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cengiz KARADAĞ -->
+    <div class="person reveal">
+      <div class="ph-col">
+        <div class="frame" style="background:linear-gradient(150deg,#EC4899,#F0403A)">
+          <img src="img/komisyon/cengiz-karadag.jpg" alt="Cengiz Karadağ">
+        </div>
+      </div>
+      <div class="info">
+        <span class="role" style="background:var(--pink)">Komisyon Üyesi</span>
+        <h2>Cengiz KARADAĞ</h2>
+        <div class="bio">
+          <p>40 yılı aşkın süredir Türk Halk Müziği'ne gönül vermiş biriyim. 100'ün üzerinde şiirim; ayrıca sözleri ve notası bana ait olan 30'un üzerinde bestem var. Uzun yıllar ticaretle uğraşan biriydim. Kadıköy Halk Eğitim Merkezi'nde 1982'den 1992'ye kadar bağlama derslerine devam ettim.</p>
+          <p>Beylikdüzü'ne 1999'da taşındım, 2000 yılından beri yönetimin içindeyim, son 10 yıldır Dernek yönetimindeyim. Burada olmamın sebebi kültürel faaliyetlerin yürütülmesi. Bu alanda da çok güzel bir yere geldik diye düşünüyorum. Bizimkent Festivali'nin de çok güzel olacağını düşünüyorum; sebebi kaliteli bir yönetimin olması. Herkese selamlar, sevgiler!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mehmet DEMİRKAN -->
+    <div class="person rev reveal">
+      <div class="ph-col">
+        <div class="frame" style="background:linear-gradient(150deg,#FFC220,#F5871F)">
+          <img src="img/komisyon/mehmet-demirkan.jpg" alt="Mehmet Demirkan">
+        </div>
+      </div>
+      <div class="info">
+        <span class="role" style="background:var(--navy)">Komisyon Üyesi</span>
+        <h2>Mehmet DEMİRKAN</h2>
+        <div class="bio">
+          <p>Uzun yıllardır hayatını müzik ve sanatla iç içe sürdüren; mühendis, gitarist, besteci, gitar eğitmeni ve DİAPASON Müzik Grubu'nun bir üyesidir. Müzik onun için yalnızca bir uğraş değil; insanlarla bağ kurmanın, duyguları paylaşmanın ve hayatı güzelleştirmenin en güzel yollarından biridir.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="wrap cta">
+  <div class="cta-card reveal">
+    <div>
+      <h3>Sen de <span class="em">aramıza katıl</span></h3>
+      <p>Gönüllü ol, atölye ver, sahneye çık ya da sponsor ol — Bizimkent FEST'i birlikte büyütelim.</p>
+    </div>
+    <a href="index.html#basvuru" class="btn btn--red">Başvuru & Katılım →</a>
+  </div>
+</div>
+
+<footer><div class="wrap">
+  <div class="foot">
+    <div class="b"><img src="img/bizimkent-fest-logo.png" alt="Bizimkent FEST"><p><b>Birlikte daha güzeliz.</b> Komşuluk, sanat, müzik ve eğlenceyi bir araya getiren mahalle festivali. Dolmabahçe Okulları katkılarıyla.</p>
+      <div class="soc"><a href="https://www.instagram.com/bizimkentfest/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="tel:+905394901847" aria-label="Telefon"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a><a href="index.html#iletisim" aria-label="E-posta"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></a></div>
+    </div>
+    <div><h5>Keşfet</h5><ul><li><a href="index.html#hakkinda">Festival Nedir?</a></li><li><a href="index.html#harita">Festival Alanı</a></li><li><a href="index.html#program">Program</a></li><li><a href="index.html#etkinlikler">Etkinlikler</a></li></ul></div>
+    <div><h5>Katıl</h5><ul><li><a href="index.html#basvuru">Başvuru</a></li><li><a href="komisyon.html">Komisyon</a></li><li><a href="index.html#sponsorlar">Sponsorlar</a></li><li><a href="index.html#iletisim">İletişim</a></li></ul></div>
+  </div>
+  <div class="copy"><span>© 2026 Bizimkent FEST · Bizimkent Derneği</span><span>24–27 Eylül 2026 · #BirlikteDahaGüzeliz</span></div>
+</div></footer>
+
+<script>
+const burger=document.getElementById('burger'),nl=document.getElementById('navLinks');
+burger.addEventListener('click',()=>nl.classList.toggle('open'));
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

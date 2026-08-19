@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bizimkent FEST · Marka Kimliği</title>
+<meta name="description" content="Bizimkent FEST marka kimliği kılavuzu — logo, renk paleti, tipografi, grafik dil, ton ve uygulamalar. 24–27 Eylül 2026.">
+<link rel="icon" type="image/png" href="img/bizimkent-fest-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================
+   BIZIMKENT FEST — MARKA KİMLİĞİ KILAVUZU
+   Mevcut site sistemini (index.html) kodlar & genişletir.
+   ========================================================== */
+:root{
+  /* Festival spektrumu */
+  --red:#F0403A; --orange:#F5871F; --yellow:#FFC220; --green:#3DAE3A;
+  --blue:#0E9DE0; --purple:#7B3FA0; --pink:#EC4899; --navy:#141C4E;
+  --green-deep:#1c6b1a;
+  /* Nötrler */
+  --ink:#161618; --muted:#6b6b72; --line:#e7e3da;
+  --bg:#FBF8F1; --card:#ffffff; --cream-2:#F4EFE3;
+  --maxw:1120px;
+  --mono:ui-monospace,'SF Mono',"SFMono-Regular",Menlo,Consolas,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:78px}
+body{font-family:'Poppins',system-ui,sans-serif;background:var(--bg);color:var(--ink);
+  -webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+h1,h2,h3,h4{letter-spacing:-.03em;line-height:1.03;font-weight:700}
+::selection{background:var(--yellow)}
+.mono{font-family:var(--mono)}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:middle}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ---------- NAV ---------- */
+header{position:sticky;top:0;z-index:900;background:rgba(251,248,241,.85);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:18px;max-width:var(--maxw);margin:0 auto;padding:12px 26px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.02em;font-size:.98rem}
+.brand img{height:38px}
+.brand small{display:block;font-weight:600;font-size:.58rem;letter-spacing:.16em;color:var(--muted)}
+.nav-links{display:flex;gap:2px;margin-left:auto;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.nav-links a{font-size:.82rem;font-weight:500;color:var(--muted);padding:7px 11px;border-radius:8px;transition:.15s}
+.nav-links a:hover{color:var(--ink);background:rgba(0,0,0,.045)}
+.nav-links a.back{color:var(--red);font-weight:600}
+@media(max-width:900px){.nav-links{display:none}}
+
+/* ---------- COVER ---------- */
+.cover{position:relative;overflow:hidden;padding:74px 0 60px}
+.cover .wrap{position:relative;z-index:2}
+.cover .ktag{display:inline-flex;align-items:center;gap:9px;background:var(--card);
+  border:1px solid var(--line);border-radius:100px;padding:7px 15px 7px 8px;font-size:.8rem;font-weight:600}
+.cover .ktag img{height:24px;border-radius:6px}
+.cover h1{font-size:clamp(2.9rem,9vw,6.2rem);font-weight:800;letter-spacing:-.045em;margin:24px 0 0}
+.cover h1 .grad{background:linear-gradient(100deg,var(--red),var(--orange) 28%,var(--yellow) 46%,var(--green) 66%,var(--blue) 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.cover .sub{font-family:'Instrument Serif';font-style:italic;font-size:clamp(1.4rem,4vw,2.4rem);
+  color:var(--muted);margin-top:2px;line-height:1.1}
+.cover p.lead{max-width:52ch;font-size:1.08rem;color:#33333a;margin-top:26px}
+.cover-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+.cover-meta .chip{font-size:.8rem;font-weight:600;padding:8px 14px;border-radius:100px;
+  border:1px solid var(--line);background:var(--card);display:inline-flex;gap:8px;align-items:center}
+/* feather crown motif behind cover */
+.crown{position:absolute;top:-40px;right:-60px;width:min(46vw,540px);opacity:.9;z-index:1;pointer-events:none}
+@media(max-width:820px){.crown{opacity:.16;right:-20%;top:auto;bottom:-6%;width:120%}}
+
+/* ---------- SECTION SCAFFOLD ---------- */
+section.sec{padding:64px 0;border-top:1px solid var(--line)}
+.sec-head{max-width:60ch;margin-bottom:38px}
+.sec-num{font-family:var(--mono);font-size:.78rem;font-weight:600;color:var(--muted);letter-spacing:.05em}
+.sec-head h2{font-size:clamp(1.9rem,5vw,3rem);margin-top:12px}
+.sec-head h2 .em{font-family:'Instrument Serif';font-style:italic;font-weight:400}
+.sec-head p{color:#44444c;margin-top:16px;font-size:1.05rem;max-width:56ch}
+
+/* ---------- BRAND ESSENCE ---------- */
+.essence{display:grid;grid-template-columns:1.3fr 1fr;gap:26px;align-items:start}
+.ess-quote{background:var(--navy);color:#fff;border-radius:26px;padding:38px 34px;position:relative;overflow:hidden}
+.ess-quote .q{font-family:'Instrument Serif';font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.15;font-style:italic}
+.ess-quote .q b{font-style:normal;font-weight:400;
+  background:linear-gradient(100deg,var(--yellow),var(--orange));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.ess-quote .s{margin-top:20px;font-size:.9rem;color:rgba(255,255,255,.7);font-weight:500}
+.ess-quote .confetti{position:absolute;inset:0;opacity:.5;pointer-events:none}
+.pillars{display:grid;gap:14px}
+.pillar{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 22px;display:flex;gap:16px;align-items:flex-start}
+.pillar .ic{width:44px;height:44px;border-radius:12px;flex:0 0 auto;display:grid;place-content:center;font-size:1.3rem}
+.pillar h4{font-size:1.05rem}
+.pillar p{font-size:.92rem;color:var(--muted);margin-top:4px}
+
+/* ---------- LOGO ---------- */
+.logo-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
+@media(max-width:820px){.logo-grid{grid-template-columns:1fr}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px;position:relative}
+.panel .cap{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.logo-hero{display:grid;place-items:center;min-height:280px;
+  background:radial-gradient(circle at 50% 42%,#fff, var(--cream-2));border-radius:16px;padding:24px}
+.logo-hero img{max-height:230px}
+.logo-variants{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.lv{border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center;font-size:.75rem;color:var(--muted);font-weight:600}
+.lv.dark{background:var(--navy);color:rgba(255,255,255,.7);border-color:transparent}
+.lv img{height:66px;margin:0 auto 10px}
+/* clearspace */
+.clearspace{position:relative;background:
+  repeating-linear-gradient(0deg,transparent,transparent 22px,rgba(14,157,224,.09) 22px,rgba(14,157,224,.09) 23px),
+  repeating-linear-gradient(90deg,transparent,transparent 22px,rgba(14,157,224,.09) 22px,rgba(14,157,224,.09) 23px);
+  border-radius:16px;padding:44px;display:grid;place-items:center;min-height:230px}
+.clearspace .box{border:2px dashed var(--blue);border-radius:10px;padding:28px;background:rgba(255,255,255,.6)}
+.clearspace img{height:120px}
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.rule{border:1px solid var(--line);border-radius:14px;padding:16px;font-size:.85rem}
+.rule .h{display:flex;align-items:center;gap:8px;font-weight:700;margin-bottom:6px}
+.rule.ok .h{color:var(--green-deep)} .rule.no .h{color:var(--red)}
+.rule .badge{width:20px;height:20px;border-radius:50%;display:grid;place-content:center;color:#fff;font-size:.72rem;font-weight:800}
+.rule.ok .badge{background:var(--green)} .rule.no .badge{background:var(--red)}
+.rule p{color:var(--muted)}
+
+/* ---------- COLOR ---------- */
+.swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:820px){.swatches{grid-template-columns:repeat(2,1fr)}}
+.sw{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--card);cursor:pointer;transition:transform .18s ease,box-shadow .18s}
+.sw:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.09)}
+.sw .chipclr{height:112px;position:relative}
+.sw .chipclr .copy{position:absolute;right:10px;top:10px;font-size:.62rem;font-weight:700;letter-spacing:.08em;
+  color:#fff;background:rgba(0,0,0,.22);border-radius:100px;padding:4px 9px;opacity:0;transition:.15s}
+.sw:hover .chipclr .copy{opacity:1}
+.sw .meta{padding:14px 15px}
+.sw .meta .nm{font-weight:700;font-size:.95rem}
+.sw .meta .code{font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:5px;line-height:1.7}
+.sw .meta .code b{color:var(--ink);font-weight:600}
+.neutrals{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+.gradient-band{margin-top:26px;border-radius:20px;overflow:hidden;border:1px solid var(--line)}
+.gradient-band .g{height:92px;background:linear-gradient(100deg,var(--red),var(--orange) 28%,var(--yellow) 46%,var(--green) 66%,var(--blue) 100%)}
+.gradient-band .gm{padding:16px 20px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
+.gradient-band .gm .mono{color:var(--ink)}
+
+/* ---------- TYPE ---------- */
+.type-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:820px){.type-grid{grid-template-columns:1fr}}
+.spec{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px}
+.spec .fam{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.spec .big{font-size:clamp(3rem,9vw,5rem);font-weight:800;letter-spacing:-.04em;line-height:1;margin:12px 0}
+.spec .big.ser{font-family:'Instrument Serif';font-style:italic;font-weight:400;letter-spacing:0}
+.spec .set{font-size:.9rem;color:var(--muted);margin-bottom:14px}
+.spec .glyphs{font-size:1.2rem;letter-spacing:.06em;color:#3a3a42;border-top:1px solid var(--line);padding-top:14px;margin-top:6px}
+.scale{display:grid;gap:12px;margin-top:8px}
+.scale .row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:1px dashed var(--line);padding-bottom:12px}
+.scale .row .lab{font-family:var(--mono);font-size:.72rem;color:var(--muted);white-space:nowrap}
+.scale .s1{font-size:2.2rem;font-weight:800;letter-spacing:-.03em}
+.scale .s2{font-size:1.5rem;font-weight:700}
+.scale .s3{font-size:1.05rem;font-weight:600}
+.scale .s4{font-size:.9rem;font-weight:500;color:#44444c}
+.scale .s5{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- MOTIF / GRAPHIC LANGUAGE ---------- */
+.motif-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.motif-grid{grid-template-columns:1fr}}
+.motif{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;overflow:hidden}
+.motif .vis{height:140px;border-radius:14px;display:grid;place-items:center;margin-bottom:16px;background:var(--cream-2)}
+.motif h4{font-size:1.05rem}
+.motif p{font-size:.9rem;color:var(--muted);margin-top:5px}
+.chip-demo{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.chip-demo .c{font-size:.78rem;font-weight:600;padding:7px 13px;border-radius:100px;background:#fff;border:1px solid var(--line);display:inline-flex;gap:7px;align-items:center}
+.diamonds{display:flex;gap:12px}
+.diamonds i{width:22px;height:22px;transform:rotate(45deg);border-radius:4px;display:block}
+.dotgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;place-items:center}
+.dotgrid i{width:16px;height:16px;border-radius:50%}
+
+/* ---------- VOICE ---------- */
+.voice-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:820px){.voice-grid{grid-template-columns:1fr}}
+.words{display:flex;gap:10px;flex-wrap:wrap}
+.words span{font-weight:600;font-size:.92rem;padding:9px 16px;border-radius:100px;color:#fff}
+.say{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px}
+.say .line{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px dashed var(--line)}
+.say .line:last-child{border-bottom:none}
+.say .tick{flex:0 0 auto;width:24px;height:24px;border-radius:50%;display:grid;place-content:center;font-weight:800;font-size:.8rem;color:#fff}
+.say .yes .tick{background:var(--green)} .say .no .tick{background:var(--red)}
+.say .no .txt{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(240,64,58,.4)}
+.say .txt{font-size:.98rem}
+
+/* ---------- SUB BRANDS ---------- */
+.subs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:820px){.subs{grid-template-columns:1fr}}
+.sub{border-radius:20px;padding:22px;color:#fff;position:relative;overflow:hidden;min-height:150px;display:flex;flex-direction:column;justify-content:flex-end}
+.sub .k{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.85}
+.sub h4{font-size:1.5rem;margin-top:6px;letter-spacing:-.03em}
+.sub p{font-size:.86rem;opacity:.92;margin-top:6px}
+.sub .emoji{position:absolute;top:14px;right:16px;font-size:2rem;opacity:.9}
+
+/* ---------- APPLICATIONS ---------- */
+.apps{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:820px){.apps{grid-template-columns:1fr}}
+.mock-lab{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+/* poster */
+.poster{aspect-ratio:3/4;border-radius:16px;overflow:hidden;position:relative;color:#fff;
+  background:radial-gradient(120% 80% at 50% 0%,#1b2668,var(--navy));padding:26px;display:flex;flex-direction:column}
+.poster .pfeather{position:absolute;top:-10px;right:-14px;width:52%;opacity:.9}
+.poster .ptop{font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.poster .pname{margin-top:auto;font-size:clamp(2rem,7vw,3.2rem);font-weight:800;letter-spacing:-.04em;line-height:.95}
+.poster .pname .g{background:linear-gradient(100deg,var(--yellow),var(--orange) 40%,var(--pink));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.poster .pdate{font-family:'Instrument Serif';font-style:italic;font-size:1.3rem;margin-top:8px}
+.poster .pfoot{margin-top:16px;font-size:.72rem;color:rgba(255,255,255,.7);display:flex;justify-content:space-between;gap:8px}
+/* ticket */
+.ticket{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1fr 92px}
+.ticket .tmain{padding:22px}
+.ticket .tk{font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.ticket h4{font-size:1.5rem;margin:8px 0 2px}
+.ticket .tsub{font-family:'Instrument Serif';font-style:italic;color:var(--muted);font-size:1.05rem}
+.ticket .trow{display:flex;gap:20px;margin-top:16px}
+.ticket .trow div .l{font-size:.64rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:700}
+.ticket .trow div .v{font-weight:700;font-size:.95rem;margin-top:2px}
+.ticket .tstub{background:
+  linear-gradient(100deg,var(--red),var(--orange) 28%,var(--yellow) 46%,var(--green) 66%,var(--blue) 100%);
+  position:relative;display:grid;place-content:center}
+.ticket .tstub:before{content:"";position:absolute;left:-1px;top:0;bottom:0;width:2px;
+  background-image:radial-gradient(circle,var(--bg) 3px,transparent 3.5px);background-size:2px 14px}
+.ticket .tstub span{writing-mode:vertical-rl;transform:rotate(180deg);color:#fff;font-weight:800;letter-spacing:.14em;font-size:.7rem;text-transform:uppercase}
+/* social square */
+.social{aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:var(--cream-2);position:relative;padding:24px;display:flex;flex-direction:column}
+.social .stag{align-self:flex-start;background:var(--red);color:#fff;font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:6px 12px;border-radius:100px}
+.social .stitle{margin-top:auto;font-size:clamp(1.6rem,6vw,2.4rem);font-weight:800;letter-spacing:-.035em;line-height:1}
+.social .stitle .em{font-family:'Instrument Serif';font-style:italic;font-weight:400}
+.social .sdots{display:flex;gap:7px;margin-top:16px}
+.social .sdots i{width:12px;height:12px;border-radius:50%}
+/* tee */
+.tee{aspect-ratio:1/1;border-radius:16px;background:var(--navy);display:grid;place-items:center;position:relative;overflow:hidden}
+.tee svg{width:78%}
+.mock-cap{font-size:.82rem;color:var(--muted);margin-top:12px;text-align:center}
+
+/* ---------- DOWNLOAD / CTA ---------- */
+.assets{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:820px){.assets{grid-template-columns:1fr}}
+.asset{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;gap:14px;align-items:center}
+.asset .ic{width:44px;height:44px;border-radius:12px;flex:0 0 auto;display:grid;place-content:center;font-size:1.3rem;background:var(--cream-2)}
+.asset .nm{font-weight:700;font-size:.95rem}
+.asset .ds{font-size:.8rem;color:var(--muted)}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--line);padding:48px 0 34px;margin-top:8px}
+.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end}
+.foot img{height:52px;margin-bottom:12px}
+.foot p{color:var(--muted);font-size:.9rem;max-width:36ch}
+.foot .r{text-align:right;font-size:.82rem;color:var(--muted)}
+.foot .r b{color:var(--ink)}
+
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);opacity:0;
+  background:var(--ink);color:#fff;padding:11px 20px;border-radius:100px;font-size:.85rem;font-weight:600;
+  z-index:999;transition:.25s;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="brand"><img src="img/bizimkent-fest-logo.png" alt="Bizimkent FEST">
+      <span>Bizimkent FEST<small>MARKA KİMLİĞİ</small></span></a>
+    <div class="nav-links">
+      <a href="#oz">Marka Özü</a>
+      <a href="#logo">Logo</a>
+      <a href="#renk">Renk</a>
+      <a href="#tipografi">Tipografi</a>
+      <a href="#dil">Grafik Dil</a>
+      <a href="#ton">Ton</a>
+      <a href="#uygulama">Uygulamalar</a>
+      <a href="index.html" class="back">← Siteye Dön</a>
+    </div>
+  </nav>
+</header>
+
+<!-- COVER -->
+<section class="cover">
+  <svg class="crown" viewBox="0 0 520 420" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <g id="feather">
+        <path d="M0 0 C-34 -70 -34 -150 0 -230 C34 -150 34 -70 0 0 Z"/>
+        <path d="M0 -18 L0 -210" stroke="rgba(0,0,0,.18)" stroke-width="4" fill="none"/>
+      </g>
+    </defs>
+    <g transform="translate(260 300)">
+      <use href="#feather" transform="rotate(-42) scale(.9)" fill="var(--green)"/>
+      <use href="#feather" transform="rotate(-26)" fill="var(--blue)"/>
+      <use href="#feather" transform="rotate(-9) scale(1.05)" fill="var(--orange)"/>
+      <use href="#feather" transform="rotate(9) scale(1.05)" fill="var(--yellow)"/>
+      <use href="#feather" transform="rotate(26)" fill="var(--blue)"/>
+      <use href="#feather" transform="rotate(42) scale(.9)" fill="var(--green)"/>
+      <circle cx="0" cy="-12" r="16" fill="var(--red)"/>
+      <rect x="-9" y="-3" width="18" height="18" rx="4" transform="rotate(45)" fill="var(--yellow)"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <span class="ktag"><img src="img/bizimkent-fest-logo.png" alt=""> Marka Kimliği Kılavuzu · v1.0</span>
+    <h1>Bizimkent <span class="grad">FEST</span></h1>
+    <div class="sub serif">marka kimliği & tasarım sistemi</div>
+    <p class="lead">Bir komşuluk buluşmasının görsel dili. Bu kılavuz; logonun, renklerin, tipografinin ve tonun her yerde aynı sıcaklıkla konuşması için hazırlandı — afişten bilete, sosyal medyadan tişörte.</p>
+    <div class="cover-meta">
+      <span class="chip"><span class="dot" style="background:var(--red)"></span> 24–27 Eylül 2026</span>
+      <span class="chip"><span class="dot" style="background:var(--blue)"></span> Bizimkent · Beylikdüzü</span>
+      <span class="chip"><span class="dot" style="background:var(--green)"></span> Dolmabahçe Okulları katkılarıyla</span>
+    </div>
+  </div>
+</section>
+
+<!-- MARKA ÖZÜ -->
+<section class="sec" id="oz"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="sec-num">01 — MARKA ÖZÜ</span>
+    <h2>Sadece bir festival değil, <span class="em">bir komşuluk buluşması</span></h2>
+    <p>Bizimkent FEST'in kalbinde tek bir fikir var: aynı yaşam alanını paylaştığımız insanlarla tanışmak, birlikte üretmek ve eğlenmek. Marka bu yüzden her zaman sıcak, kapsayıcı ve neşeli konuşur.</p>
+  </div>
+  <div class="essence">
+    <div class="ess-quote reveal">
+      <svg class="confetti" viewBox="0 0 400 260" preserveAspectRatio="none" aria-hidden="true">
+        <g opacity=".9">
+          <rect x="40" y="30" width="14" height="14" rx="3" transform="rotate(20 47 37)" fill="#F5871F"/>
+          <rect x="330" y="46" width="12" height="12" rx="3" transform="rotate(35 336 52)" fill="#FFC220"/>
+          <circle cx="300" cy="150" r="7" fill="#EC4899"/>
+          <circle cx="70" cy="180" r="6" fill="#3DAE3A"/>
+          <rect x="180" y="20" width="10" height="10" rx="2" transform="rotate(45 185 25)" fill="#0E9DE0"/>
+          <rect x="250" y="210" width="12" height="12" rx="3" transform="rotate(15 256 216)" fill="#F5871F"/>
+          <circle cx="360" cy="200" r="5" fill="#FFC220"/>
+        </g>
+      </svg>
+      <div class="q">“Çünkü biz inanıyoruz:<br><b>Birlikte daha güzeliz.</b>”</div>
+      <div class="s">— Marka sözü / Brand promise</div>
+    </div>
+    <div class="pillars">
+      <div class="pillar reveal"><div class="ic" style="background:#fdecec">🤝</div>
+        <div><h4>Komşuluk</h4><p>Herkesin adının bilindiği, kapıların açık olduğu mahalle ruhu.</p></div></div>
+      <div class="pillar reveal"><div class="ic" style="background:#e6f5fc">🎨</div>
+        <div><h4>Birlikte üretim</h4><p>Sitedeki yetenekleri sahneye taşıyan, katılımcı bir festival.</p></div></div>
+      <div class="pillar reveal"><div class="ic" style="background:#fef6e0">🎉</div>
+        <div><h4>Neşe</h4><p>Karnaval enerjisi: renkli, canlı, herkese kucak açan bir kutlama.</p></div></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- LOGO -->
+<section class="sec" id="logo"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="sec-num">02 — LOGO</span>
+    <h2>Tüylü karnaval maskesi & <span class="em">FEST wordmark</span></h2>
+    <p>Logo iki parçadan oluşur: renkli tüylerle çevrili karnaval maskesi ve kırmızı şerit üzerindeki el yazısı “Bizimkent FEST” yazısı. Maske festivalin karnaval ruhunu, şerit ise komşuluk sıcaklığını taşır.</p>
+  </div>
+  <div class="logo-grid">
+    <div class="panel reveal">
+      <div class="cap">Ana Logo</div>
+      <div class="logo-hero"><img src="img/bizimkent-fest-logo.png" alt="Bizimkent FEST ana logo"></div>
+      <div class="logo-variants">
+        <div class="lv"><img src="img/bizimkent-fest-logo.png" alt="">Açık zeminde<br>(krem / beyaz)</div>
+        <div class="lv dark"><img src="img/bizimkent-fest-logo.png" alt="">Koyu zeminde<br>(lacivert)</div>
+      </div>
+    </div>
+    <div class="panel reveal">
+      <div class="cap">Güvenli Alan & Minimum Boyut</div>
+      <div class="clearspace"><div class="box"><img src="img/bizimkent-fest-logo.png" alt="Logo güvenli alan"></div></div>
+      <p style="font-size:.88rem;color:var(--muted);margin-top:16px">
+        Logonun çevresinde en az <b style="color:var(--ink)">maske genişliğinin ¼’ü</b> kadar boşluk bırakın.
+        Dijitalde minimum genişlik <b style="color:var(--ink)">96&nbsp;px</b>, baskıda <b style="color:var(--ink)">24&nbsp;mm</b>.
+        Şerit yazısı okunur kalmalıdır.
+      </p>
+    </div>
+  </div>
+  <div class="dos" style="grid-template-columns:repeat(4,1fr)">
+    <div class="rule ok reveal"><div class="h"><span class="badge">✓</span> Yapın</div><p>Krem, beyaz veya lacivert zeminlerde tam renkli kullanın.</p></div>
+    <div class="rule ok reveal"><div class="h"><span class="badge">✓</span> Yapın</div><p>Nefes alacak boşluk bırakın; oranları koruyun.</p></div>
+    <div class="rule no reveal"><div class="h"><span class="badge">✕</span> Yapmayın</div><p>Renkleri değiştirmeyin, gradyan eklemeyin, döndürmeyin.</p></div>
+    <div class="rule no reveal"><div class="h"><span class="badge">✕</span> Yapmayın</div><p>Karmaşık fotoğraf üstüne veya çakışan renklere koymayın.</p></div>
+  </div>
+</div></section>
+
+<!-- RENK -->
+<section class="sec" id="renk"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="sec-num">03 — RENK PALETİ</span>
+    <h2>Karnaval spektrumu <span class="em">— sekiz renk, tek ahenk</span></h2>
+    <p>Palet doğrudan maskenin tüylerinden gelir. Bir tasarımda 2–3 rengi baskın seçin; kalanları vurgu olarak kullanın. Renk kartına tıklayarak HEX kodunu kopyalayabilirsiniz.</p>
+  </div>
+  <div class="swatches">
+    <div class="sw reveal" data-hex="#F0403A"><div class="chipclr" style="background:#F0403A"><span class="copy">HEX kopyala</span></div>
+      <div class="meta"><div class="nm">Festival Kırmızı</div><div class="code"><b>HEX</b> #F0403A<br><b>RGB</b> 240 · 64 · 58<br><b>CMYK</b> 0 · 73 · 76 · 6</div></div></div>
+    <div class="sw reveal" data-hex="#F5871F"><div class="chipclr" style="background:#F5871F"><span class="copy">HEX kopyala</span></div>
+      <div class="meta"><div class="nm">Karnaval Turuncu</div><div class="code"><b>HEX</b> #F5871F<br><b>RGB</b> 245 · 135 · 31<br><b>CMYK</b> 0 · 45 · 87 · 4</div></div></div>
+    <div class="sw reveal" data-hex="#FFC220"><div class="chipclr" style="background:#FFC220"><span class="copy">HEX kopyala</span></div>
+      <div class="meta"><div class="nm">Güneş Sarısı</div><div class="code"><b>HEX</b> #FFC220<br><b>RGB</b> 255 · 194 · 32<br><b>CMYK</b> 0 · 24 · 87 · 0</div></div></div>
+    <div class="sw reveal" data-hex="#3DAE3A"><div class="chipclr" style="background:#3DAE3A"><span class="copy">HEX kopyala</span></div>
+      <div class="meta"><div class="nm">Bizim Yeşil</div><div class="code"><b>HEX</b> #3DAE3A<br><b>RGB</b> 61 · 174 · 58<br><b>CMYK</b> 65 · 0 · 67 · 32</div></div></div>
+    <div class="sw reveal" data-hex="#0E9DE0"><div class="chipclr" style="background:#0E9DE0"><span class="copy">HEX kopyala</span></div>
+      <div class="meta"><div class="nm">Maske Mavisi</div><div class="code"><b>HEX</b> #0E9DE0<br><b>RGB</b> 14 · 157 · 224<br><b>CMYK</b> 94 · 30 · 0 · 12</div></div></div>
+    <div class="sw reveal" data-hex="#7B3FA0"><div class="chipclr" style="background:#7B3FA0"><span class="copy">HEX kopyala</span></div>
+      <div class="meta"><div class="nm">Sahne Moru</div><div class="code"><b>HEX</b> #7B3FA0<br><b>RGB</b> 123 · 63 · 160<br><b>CMYK</b> 23 · 61 · 0 · 37</div></div></div>
+    <div class="sw reveal" data-hex="#EC4899"><div class="chipclr" style="background:#EC4899"><span class="copy">HEX kopyala</span></div>
+      <div class="meta"><div class="nm">Pazar Pembesi</div><div class="code"><b>HEX</b> #EC4899<br><b>RGB</b> 236 · 72 · 153<br><b>CMYK</b> 0 · 69 · 35 · 7</div></div></div>
+    <div class="sw reveal" data-hex="#141C4E"><div class="chipclr" style="background:#141C4E"><span class="copy">HEX kopyala</span></div>
+      <div class="meta"><div class="nm">Gece Lacivert</div><div class="code"><b>HEX</b> #141C4E<br><b>RGB</b> 20 · 28 · 78<br><b>CMYK</b> 74 · 64 · 0 · 69</div></div></div>
+  </div>
+
+  <div style="margin-top:34px" class="reveal">
+    <div class="cap eyebrow" style="margin-bottom:14px">Nötrler & Zeminler</div>
+    <div class="neutrals">
+      <div class="sw" data-hex="#FBF8F1"><div class="chipclr" style="background:#FBF8F1;border-bottom:1px solid var(--line)"><span class="copy" style="color:#333;background:rgba(0,0,0,.06)">HEX kopyala</span></div>
+        <div class="meta"><div class="nm">Krem Zemin</div><div class="code"><b>HEX</b> #FBF8F1</div></div></div>
+      <div class="sw" data-hex="#FFFFFF"><div class="chipclr" style="background:#FFFFFF;border-bottom:1px solid var(--line)"><span class="copy" style="color:#333;background:rgba(0,0,0,.06)">HEX kopyala</span></div>
+        <div class="meta"><div class="nm">Kart Beyazı</div><div class="code"><b>HEX</b> #FFFFFF</div></div></div>
+      <div class="sw" data-hex="#161618"><div class="chipclr" style="background:#161618"><span class="copy">HEX kopyala</span></div>
+        <div class="meta"><div class="nm">Metin Siyahı</div><div class="code"><b>HEX</b> #161618</div></div></div>
+      <div class="sw" data-hex="#6b6b72"><div class="chipclr" style="background:#6b6b72"><span class="copy">HEX kopyala</span></div>
+        <div class="meta"><div class="nm">İkincil Gri</div><div class="code"><b>HEX</b> #6B6B72</div></div></div>
+    </div>
+  </div>
+
+  <div class="gradient-band reveal">
+    <div class="g"></div>
+    <div class="gm">
+      <span>İmza gradyanı — yalnızca <b style="color:var(--ink)">FEST</b> vurgusunda ve büyük yüzeylerde</span>
+      <span class="mono">linear-gradient(100deg, #F0403A, #F5871F 28%, #FFC220 46%, #3DAE3A 66%, #0E9DE0 100%)</span>
+    </div>
+  </div>
+</div></section>
+
+<!-- TİPOGRAFİ -->
+<section class="sec" id="tipografi"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="sec-num">04 — TİPOGRAFİ</span>
+    <h2>Poppins ile <span class="em">Instrument Serif</span></h2>
+    <p>Başlıklar ve arayüz için okunaklı, modern ve sıcak bir geometrik sans-serif olan <b>Poppins</b>; duygusal vurgular ve alt başlıklar için italik <b>Instrument Serif</b>. İkili; net ile samimiyi dengeler.</p>
+  </div>
+  <div class="type-grid">
+    <div class="spec reveal">
+      <div class="fam">Ana / Başlık &amp; Metin — Poppins</div>
+      <div class="big">Aa</div>
+      <div class="set">Weights: 400 · 500 · 600 · 700 · 800</div>
+      <div class="glyphs">ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ<br>abcçdefgğhıijklmnoöprsştuüvyz 0123456789</div>
+    </div>
+    <div class="spec reveal">
+      <div class="fam">Vurgu / Duygu — Instrument Serif</div>
+      <div class="big ser">Aa</div>
+      <div class="set">Italic — yalnızca kısa vurgular &amp; alt başlıklar</div>
+      <div class="glyphs serif" style="font-style:italic;font-size:1.5rem">bir komşuluk buluşması · birlikte daha güzeliz · festival zamanı</div>
+    </div>
+  </div>
+  <div class="panel reveal" style="margin-top:20px">
+    <div class="cap">Tip Ölçeği (Type Scale)</div>
+    <div class="scale">
+      <div class="row"><span class="s1">Bizimkent'te festival zamanı</span><span class="lab">Display · Poppins 800 · -3% tracking</span></div>
+      <div class="row"><span class="s2">Herkes için, hep birlikte</span><span class="lab">H2 · Poppins 700</span></div>
+      <div class="row"><span class="s3 serif" style="font-style:italic">bir komşuluk buluşması</span><span class="lab">Vurgu · Instrument Serif italic</span></div>
+      <div class="row"><span class="s4">Aynı yaşam alanını paylaştığımız komşularımızla; sanatın, müziğin ve sohbetin içinde buluşuyoruz.</span><span class="lab">Gövde · Poppins 500 · 1.6 satır</span></div>
+      <div class="row"><span class="s5">Festival · Program · Başvuru</span><span class="lab">Etiket · Poppins 700 · +20% tracking · UPPERCASE</span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- GRAFİK DİL -->
+<section class="sec" id="dil"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="sec-num">05 — GRAFİK DİL</span>
+    <h2>Tüyler, elmaslar ve <span class="em">renkli noktalar</span></h2>
+    <p>Logodan türeyen üç yardımcı öğe markayı her yerde tanınır kılar: karnaval tüyleri, maskenin elmas taşları ve renk kodlu noktalar/çipler.</p>
+  </div>
+  <div class="motif-grid">
+    <div class="motif reveal">
+      <div class="vis">
+        <svg viewBox="0 0 220 130" width="180" aria-hidden="true">
+          <g transform="translate(110 118)">
+            <use href="#feather" transform="rotate(-34) scale(.42)" fill="#3DAE3A"/>
+            <use href="#feather" transform="rotate(-18) scale(.48)" fill="#0E9DE0"/>
+            <use href="#feather" transform="rotate(0) scale(.52)" fill="#F5871F"/>
+            <use href="#feather" transform="rotate(18) scale(.48)" fill="#FFC220"/>
+            <use href="#feather" transform="rotate(34) scale(.42)" fill="#3DAE3A"/>
+          </g>
+        </svg>
+      </div>
+      <h4>Karnaval tüyleri</h4>
+      <p>Başlıkların arkasında, afiş köşelerinde ve büyük yüzeylerde yelpaze düzeninde kullanılır.</p>
+    </div>
+    <div class="motif reveal">
+      <div class="vis">
+        <div class="diamonds">
+          <i style="background:var(--red)"></i><i style="background:var(--purple)"></i>
+          <i style="background:var(--blue)"></i><i style="background:var(--pink)"></i>
+          <i style="background:var(--yellow)"></i>
+        </div>
+      </div>
+      <h4>Elmas taşları</h4>
+      <p>Maskeden gelen 45° elmaslar; ayraç, madde imi ve bordür deseni olarak.</p>
+    </div>
+    <div class="motif reveal">
+      <div class="vis">
+        <div class="chip-demo">
+          <span class="c"><span class="dot" style="background:var(--red)"></span> Canlı Müzik</span>
+          <span class="c"><span class="dot" style="background:var(--blue)"></span> Atölye</span>
+          <span class="c"><span class="dot" style="background:var(--green)"></span> Turnuva</span>
+          <span class="c"><span class="dot" style="background:var(--purple)"></span> Sinema</span>
+        </div>
+      </div>
+      <h4>Renk kodlu çipler</h4>
+      <p>Her etkinlik türü bir renk. Yuvarlak çipler ve noktalar programı okunur kılar.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- TON -->
+<section class="sec" id="ton"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="sec-num">06 — TON &amp; SES</span>
+    <h2>Sıcak, kapsayıcı, <span class="em">neşeli</span></h2>
+    <p>Bizimkent FEST bir komşu gibi konuşur: içten, davetkâr, hiç kimseyi dışarıda bırakmayan. Kurumsal değil, samimi. Abartılı değil, gerçek.</p>
+  </div>
+  <div class="voice-grid">
+    <div class="reveal">
+      <div class="cap eyebrow" style="margin-bottom:14px">Marka bu kelimelerle düşünür</div>
+      <div class="words">
+        <span style="background:var(--red)">Komşuluk</span>
+        <span style="background:var(--blue)">Birlikte</span>
+        <span style="background:var(--green)">Samimi</span>
+        <span style="background:var(--orange)">Neşeli</span>
+        <span style="background:var(--purple)">Kapsayıcı</span>
+        <span style="background:var(--pink)">Renkli</span>
+        <span style="background:var(--navy)">Mahalle ruhu</span>
+      </div>
+      <div class="cap eyebrow" style="margin:26px 0 12px">Yazım ilkeleri</div>
+      <ul style="list-style:none;display:grid;gap:10px">
+        <li style="display:flex;gap:10px"><span class="dot" style="background:var(--green);margin-top:8px"></span> <span>“Biz” dilini kullanın — okuyucuyu festivalin bir parçası yapın.</span></li>
+        <li style="display:flex;gap:10px"><span class="dot" style="background:var(--green);margin-top:8px"></span> <span>Kısa, davetkâr cümleler. Emir değil, çağrı.</span></li>
+        <li style="display:flex;gap:10px"><span class="dot" style="background:var(--green);margin-top:8px"></span> <span>Vurgu için tek bir italik dokunuş yeter.</span></li>
+      </ul>
+    </div>
+    <div class="say reveal">
+      <div class="cap eyebrow" style="margin-bottom:6px">Böyle söyleriz / Böyle söylemeyiz</div>
+      <div class="line yes"><span class="tick">✓</span><span class="txt">“Aynı mahalleyi paylaştığımız herkesi festivale bekliyoruz.”</span></div>
+      <div class="line no"><span class="tick">✕</span><span class="txt">“Etkinliğimize katılım sağlamanız rica olunur.”</span></div>
+      <div class="line yes"><span class="tick">✓</span><span class="txt">“Birlikte daha güzeliz — gel, bu enerjiyi birlikte yaşayalım.”</span></div>
+      <div class="line no"><span class="tick">✕</span><span class="txt">“Organizasyonumuz kapsamında sizleri ağırlamaktan memnuniyet duyarız.”</span></div>
+      <div class="line yes"><span class="tick">✓</span><span class="txt">“Sahne senin: Bizim Star'a başvur, yeteneğini paylaş.”</span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ALT MARKALAR -->
+<section class="sec"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="sec-num">07 — ALT MARKALAR</span>
+    <h2>Festivalin <span class="em">renkli aileleri</span></h2>
+    <p>Ana markanın altında yaşayan program markaları; hepsi “Bizim” önekiyle aynı sıcaklığı taşır, her biri kendi rengiyle ayrışır.</p>
+  </div>
+  <div class="subs">
+    <div class="sub reveal" style="background:linear-gradient(135deg,var(--orange),var(--red))"><span class="emoji">🎤</span>
+      <span class="k">Yetenek Sahnesi</span><h4>Bizim Star</h4><p>Ödüllü ses ve sahne yarışması.</p></div>
+    <div class="sub reveal" style="background:linear-gradient(135deg,var(--pink),var(--purple))"><span class="emoji">🛍️</span>
+      <span class="k">Komşu Pazarı</span><h4>Bizim Pazar</h4><p>Komşuların ürünlerini paylaştığı renkli stantlar.</p></div>
+    <div class="sub reveal" style="background:linear-gradient(135deg,var(--blue),var(--navy))"><span class="emoji">🎬</span>
+      <span class="k">Açık Hava</span><h4>Bizim Sinema</h4><p>Yıldızların altında film ve söyleşi geceleri.</p></div>
+  </div>
+</div></section>
+
+<!-- UYGULAMALAR -->
+<section class="sec" id="uygulama"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="sec-num">08 — UYGULAMALAR</span>
+    <h2>Sistem <span class="em">iş başında</span></h2>
+    <p>Aynı palet, tipografi ve grafik dil farklı mecralarda nasıl görünür? Aşağıdaki örnekler birer yön göstericidir.</p>
+  </div>
+  <div class="apps">
+    <div class="reveal">
+      <div class="mock-lab">Afiş — A2 / Sosyal Dikey</div>
+      <div class="poster">
+        <svg class="pfeather" viewBox="0 0 220 220" aria-hidden="true">
+          <g transform="translate(110 200)">
+            <use href="#feather" transform="rotate(-30) scale(.7)" fill="#3DAE3A"/>
+            <use href="#feather" transform="rotate(-12) scale(.8)" fill="#0E9DE0"/>
+            <use href="#feather" transform="rotate(6) scale(.82)" fill="#F5871F"/>
+            <use href="#feather" transform="rotate(24) scale(.72)" fill="#FFC220"/>
+          </g>
+        </svg>
+        <div class="ptop">Dolmabahçe Okulları Katkılarıyla</div>
+        <div class="pname">Bizimkent<br><span class="g">FEST</span></div>
+        <div class="pdate">24–27 Eylül 2026</div>
+        <div class="pfoot"><span>Bizimkent · Beylikdüzü</span><span>bizimkentfest.com</span></div>
+      </div>
+    </div>
+    <div style="display:grid;gap:20px" class="reveal">
+      <div>
+        <div class="mock-lab">Bilet / Davetiye</div>
+        <div class="ticket">
+          <div class="tmain">
+            <div class="tk">Giriş Davetiyesi</div>
+            <h4>Bizimkent FEST</h4>
+            <div class="tsub">bir komşuluk buluşması</div>
+            <div class="trow">
+              <div><div class="l">Tarih</div><div class="v">24–27 Eylül</div></div>
+              <div><div class="l">Alan</div><div class="v">Havuz Meydanı</div></div>
+              <div><div class="l">Giriş</div><div class="v">Ücretsiz</div></div>
+            </div>
+          </div>
+          <div class="tstub"><span>FEST 2026</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="mock-lab">Sosyal Medya — Kare Post</div>
+        <div class="social">
+          <span class="stag">Program Açıklandı</span>
+          <div class="stitle">Herkes için,<br><span class="em">hep birlikte.</span></div>
+          <div class="sdots">
+            <i style="background:var(--red)"></i><i style="background:var(--orange)"></i>
+            <i style="background:var(--yellow)"></i><i style="background:var(--green)"></i>
+            <i style="background:var(--blue)"></i><i style="background:var(--purple)"></i>
+            <i style="background:var(--pink)"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:20px" class="apps">
+    <div class="reveal">
+      <div class="mock-lab">Tişört / Gönüllü Ekipmanı</div>
+      <div class="tee">
+        <svg viewBox="0 0 300 130" aria-hidden="true">
+          <g transform="translate(150 120)">
+            <use href="#feather" transform="rotate(-30) scale(.5)" fill="#3DAE3A"/>
+            <use href="#feather" transform="rotate(-12) scale(.58)" fill="#0E9DE0"/>
+            <use href="#feather" transform="rotate(6) scale(.6)" fill="#F5871F"/>
+            <use href="#feather" transform="rotate(24) scale(.5)" fill="#FFC220"/>
+          </g>
+          <text x="150" y="112" text-anchor="middle" fill="#fff" font-family="Poppins,sans-serif" font-weight="800" font-size="30" letter-spacing="-1">BİZİMKENT FEST</text>
+        </svg>
+      </div>
+      <div class="mock-cap">Lacivert zeminde tam renkli tüy + beyaz wordmark.</div>
+    </div>
+    <div class="reveal">
+      <div class="mock-lab">Renk-Etkinlik Eşleşmesi</div>
+      <div class="panel" style="height:100%;display:flex;flex-direction:column;justify-content:center;gap:12px">
+        <div class="chip-demo" style="justify-content:flex-start">
+          <span class="c"><span class="dot" style="background:var(--red)"></span> Müzik</span>
+          <span class="c"><span class="dot" style="background:var(--blue)"></span> Atölye</span>
+          <span class="c"><span class="dot" style="background:var(--green)"></span> Spor</span>
+        </div>
+        <div class="chip-demo" style="justify-content:flex-start">
+          <span class="c"><span class="dot" style="background:var(--purple)"></span> Sinema</span>
+          <span class="c"><span class="dot" style="background:var(--orange)"></span> Çocuk</span>
+          <span class="c"><span class="dot" style="background:var(--pink)"></span> Bizim Pazar</span>
+        </div>
+        <p style="font-size:.88rem;color:var(--muted);margin-top:6px">Her etkinlik türü kalıcı olarak bir renge sabitlenir; program, harita ve biletlerde aynı kod tekrarlanır.</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ASSETS / KAPANIŞ -->
+<section class="sec"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="sec-num">09 — VARLIKLAR</span>
+    <h2>Marka <span class="em">dosyaları</span></h2>
+    <p>Aşağıdaki varlıklar projede mevcut. Yeni tasarımlarda daima orijinal logo dosyasını kullanın, yeniden çizmeyin.</p>
+  </div>
+  <div class="assets">
+    <a class="asset reveal" href="img/bizimkent-fest-logo.png" target="_blank" rel="noopener">
+      <div class="ic">🎭</div><div><div class="nm">FEST Logosu (PNG)</div><div class="ds">Şeffaf zemin · ana logo</div></div></a>
+    <a class="asset reveal" href="img/bizimkent-dernek-logo.png" target="_blank" rel="noopener">
+      <div class="ic">🏘️</div><div><div class="nm">Bizimkent Dernek Logosu</div><div class="ds">Kurumsal / üst marka</div></div></a>
+    <a class="asset reveal" href="index.html">
+      <div class="ic">🌐</div><div><div class="nm">Canlı Web Sitesi</div><div class="ds">Sistemin uygulanmış hali</div></div></a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="foot">
+    <div>
+      <img src="img/bizimkent-fest-logo.png" alt="Bizimkent FEST">
+      <p>Bizimkent FEST — bir komşuluk buluşması. 24–27 Eylül 2026, Beylikdüzü.</p>
+    </div>
+    <div class="r">
+      <b>Marka Kimliği Kılavuzu v1.0</b><br>
+      Bizimkent FEST Komisyonu · Dolmabahçe Okulları katkılarıyla<br>
+      Bu belge mevcut site tasarım sistemini kodlar.
+    </div>
+  </div>
+</div></footer>
+
+<div class="toast" id="toast">Kopyalandı</div>
+
+<!-- feather symbol available site-wide -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <g id="feather-def"></g>
+</defs></svg>
+
+<script>
+// reveal on scroll
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// copy hex on swatch click
+const toast=document.getElementById('toast');let tt;
+document.querySelectorAll('.sw[data-hex]').forEach(sw=>{
+  sw.addEventListener('click',()=>{
+    const hex=sw.getAttribute('data-hex');
+    navigator.clipboard?.writeText(hex).then(()=>{
+      toast.textContent=hex+' kopyalandı';
+      toast.classList.add('show');clearTimeout(tt);
+      tt=setTimeout(()=>toast.classList.remove('show'),1400);
+    }).catch(()=>{});
+  });
+});
+</script>
+</body>
+</html>

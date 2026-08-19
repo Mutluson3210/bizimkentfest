@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galeri · Bizimkent FEST</title>
+<meta name="description" content="Bizimkent FEST galerisi — festivalden fotoğraflar ve videolar.">
+<link rel="icon" type="image/png" href="img/bizimkent-fest-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#F0403A; --blue:#0E9DE0; --green:#3DAE3A; --yellow:#FFC220;
+  --orange:#F5871F; --purple:#7B3FA0; --navy:#141C4E; --pink:#EC4899;
+  --ink:#161618; --muted:#6b6b72; --line:#e7e3da;
+  --bg:#FBF8F1; --card:#ffffff;
+  --maxw:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:'Poppins',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+h1,h2,h3{letter-spacing:-.03em;line-height:1.04;font-weight:700}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+::selection{background:var(--yellow)}
+.eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:middle}
+
+.btn{display:inline-flex;align-items:center;gap:.5em;font-weight:600;font-size:.95rem;padding:13px 24px;border-radius:100px;background:var(--ink);color:#fff;transition:transform .18s ease,background .18s;border:1.5px solid var(--ink)}
+.btn:hover{transform:translateY(-2px)}
+.btn--ghost{background:transparent;color:var(--ink)}
+.btn--ghost:hover{background:var(--ink);color:#fff}
+.btn--red{background:var(--red);border-color:var(--red)}
+
+/* nav */
+header{position:sticky;top:0;z-index:900;background:rgba(251,248,241,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:20px;max-width:var(--maxw);margin:0 auto;padding:14px 26px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.02em}
+.brand img{height:40px}
+.nav-links{display:flex;gap:4px;margin-left:auto;align-items:center}
+.nav-links a{font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:8px 12px;border-radius:8px;transition:.15s}
+.nav-links a:hover,.nav-links a.active{color:var(--ink);background:rgba(0,0,0,.04)}
+.nav-links .btn{margin-left:8px;padding:9px 18px;font-size:.85rem;color:#fff}
+.burger{display:none;margin-left:auto;background:none;border:1.5px solid var(--ink);border-radius:10px;width:46px;height:42px;font-size:1.2rem;cursor:pointer}
+.ic-svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.burger .ic-svg{width:22px;height:22px}
+@media(max-width:1000px){
+  .nav-links{position:fixed;inset:70px 14px auto 14px;flex-direction:column;background:var(--card);padding:14px;border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.12);display:none;align-items:stretch}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px;font-size:1rem}
+  .burger{display:block}
+}
+
+/* page hero */
+.phero{padding:56px 0 24px;position:relative;overflow:hidden}
+.phero .glow{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;z-index:0}
+.phero .wrap{position:relative;z-index:1}
+.crumb{font-size:.85rem;color:var(--muted);font-weight:500;margin-bottom:18px}
+.crumb a:hover{color:var(--ink)}
+.phero h1{font-size:clamp(2.6rem,7vw,4.8rem);font-weight:800;letter-spacing:-.04em;margin:10px 0 6px}
+.phero h1 .em{font-family:'Instrument Serif';font-style:italic;font-weight:400;letter-spacing:0}
+.phero .lead{font-size:1.12rem;color:#3a3a42;max-width:60ch;margin-top:12px}
+.phero .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.tagpill{font-size:.82rem;font-weight:500;padding:8px 15px;border-radius:100px;border:1px solid var(--line);background:var(--card);display:inline-flex;gap:8px;align-items:center}
+
+/* gallery */
+.gal{padding:8px 0 40px}
+.gtabs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 26px}
+.gtab{font-size:.82rem;font-weight:600;letter-spacing:.04em;padding:9px 18px;border-radius:100px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer;transition:.15s}
+.gtab:hover{color:var(--ink)}
+.gtab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.gal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.gal-item{position:relative;aspect-ratio:1;border-radius:16px;overflow:hidden;cursor:pointer;border:1px solid var(--line);box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item .ph{position:absolute;inset:0;display:grid;place-content:center;gap:10px;color:#fff;text-align:center;padding:16px}
+.gal-item .ph .ic-svg{width:34px;height:34px;margin:0 auto;stroke-width:1.8}
+.gal-item .ph span{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;opacity:.92}
+.gal-item .vtag{position:absolute;left:12px;top:12px;background:rgba(0,0,0,.55);color:#fff;font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:100px;display:inline-flex;gap:6px;align-items:center;z-index:2}
+.gal-item .vtag svg{width:13px;height:13px;fill:#fff}
+.gal-item .play{position:absolute;inset:0;display:grid;place-content:center;z-index:2;pointer-events:none}
+.gal-item .play svg{width:60px;height:60px;filter:drop-shadow(0 6px 16px rgba(0,0,0,.4));transition:transform .2s}
+.gal-item:hover .play svg{transform:scale(1.08)}
+.gal-item[hidden]{display:none}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(12,14,34,.94);display:none;align-items:center;justify-content:center;z-index:2000;padding:24px}
+.lb.open{display:flex}
+.lb-media{max-width:94vw;max-height:88vh;display:flex;align-items:center;justify-content:center}
+.lb-media img,.lb-media video{max-width:94vw;max-height:88vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.lb-media iframe{width:min(94vw,960px);height:min(88vh,540px);aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
+.lb-close,.lb-nav{position:absolute;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);color:#fff;width:52px;height:52px;border-radius:50%;display:grid;place-content:center;cursor:pointer;transition:.15s;z-index:2}
+.lb-close:hover,.lb-nav:hover{background:rgba(255,255,255,.24)}
+.lb-close{top:20px;right:20px}
+.lb-nav.prev{left:20px;top:50%;transform:translateY(-50%)}
+.lb-nav.next{right:20px;top:50%;transform:translateY(-50%)}
+.lb-nav svg,.lb-close svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:600px){.lb-nav{width:44px;height:44px}.lb-close{width:44px;height:44px;top:14px;right:14px}}
+
+/* footer */
+footer{background:var(--navy);color:#fff;padding:64px 0 34px;margin-top:20px}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:30px}
+.foot .b img{height:140px;margin-bottom:16px}
+.foot .b p{color:rgba(255,255,255,.72);font-size:.9rem;max-width:38ch}
+.foot .b p b{color:#fff}
+.foot h5{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:14px}
+.foot ul{list-style:none;display:grid;gap:9px}
+.foot ul a{font-size:.92rem;color:rgba(255,255,255,.82);font-weight:500}
+.foot ul a:hover{color:var(--yellow)}
+.foot .soc{display:flex;gap:10px;margin-top:14px}
+.foot .soc a{width:42px;height:42px;border-radius:12px;border:1px solid rgba(255,255,255,.22);display:grid;place-content:center;transition:.15s}
+.foot .soc a:hover{background:rgba(255,255,255,.14)}
+.copy{margin-top:38px;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.82rem;color:rgba(255,255,255,.6)}
+@media(max-width:760px){.foot{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <a href="index.html" class="brand"><img src="img/bizimkent-fest-logo.png" alt="Bizimkent FEST"><span>BİZİMKENT FEST</span></a>
+    <button class="burger" id="burger" aria-label="Menü"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html#hakkinda">Festival</a>
+      <a href="index.html#harita">Festival Alanı</a>
+      <a href="index.html#etkinlikler">Etkinlikler</a>
+      <a href="index.html#program">Program</a>
+      <a href="komisyon.html">Komisyon</a>
+      <a href="galeri.html" class="active">Galeri</a>
+      <a href="index.html#sponsorlar">Sponsorlar</a>
+      <a href="index.html#iletisim">İletişim</a>
+      <a href="index.html#basvuru" class="btn btn--red">Başvur</a>
+    </div>
+  </nav>
+</header>
+
+<!-- PAGE HERO -->
+<section class="phero">
+  <div class="glow" style="width:420px;height:420px;background:var(--pink);top:-160px;right:-80px"></div>
+  <div class="glow" style="width:360px;height:360px;background:var(--blue);top:40px;left:-140px"></div>
+  <div class="wrap">
+    <div class="crumb reveal"><a href="index.html">Ana Sayfa</a> · Galeri</div>
+    <span class="eyebrow reveal">Fotoğraflar & Videolar</span>
+    <h1 class="reveal">Festivalden <span class="em">kareler</span></h1>
+    <p class="lead reveal">Bizimkent FEST'in coşkusunu, komşuluğu ve sahnedeki anları burada topluyoruz. Fotoğraflar ve videolarla festivalin ruhunu yeniden yaşa.</p>
+    <div class="meta reveal">
+      <span class="tagpill"><span class="dot" style="background:var(--red)"></span> Fotoğraflar</span>
+      <span class="tagpill"><span class="dot" style="background:var(--blue)"></span> Videolar</span>
+      <span class="tagpill"><span class="dot" style="background:var(--green)"></span> #BirlikteDahaGüzeliz</span>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div class="wrap gal">
+  <div class="gtabs reveal">
+    <button class="gtab active" data-f="all">Tümü</button>
+    <button class="gtab" data-f="photo">Fotoğraflar</button>
+    <button class="gtab" data-f="video">Videolar</button>
+  </div>
+
+  <!--
+    ============ MEDYA EKLEME REHBERİ ============
+    FOTOĞRAF eklemek için (dosyayı img/galeri/ içine at):
+      <div class="gal-item" data-type="photo" data-full="img/galeri/foto-1.jpg">
+        <img src="img/galeri/foto-1.jpg" alt="Kısa açıklama">
+      </div>
+
+    VİDEO — YouTube linki ile (linkteki v= sonrası kod, ör. dQw4w9WgXcQ):
+      <div class="gal-item" data-type="video" data-yt="VIDEO_KODU">
+        <img src="img/galeri/video-1-kapak.jpg" alt="Video başlığı">
+        <span class="vtag"><svg viewBox='0 0 24 24'><polygon points='5 3 19 12 5 21 5 3'/></svg> Video</span>
+        <div class="play"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.92)"/><polygon points="10 8 16 12 10 16" fill="#141C4E"/></svg></div>
+      </div>
+
+    VİDEO — yüklenen dosya ile (mp4'ü img/galeri/ içine at):
+      <div class="gal-item" data-type="video" data-video="img/galeri/video-1.mp4"> ... </div>
+
+    Not: Aşağıdaki renkli kutular geçici örnektir; gerçek medya eklenince silinebilir.
+    ==============================================
+  -->
+  <div class="gal-grid reveal" id="galGrid">
+    <div class="gal-item" data-type="photo" style="background:linear-gradient(150deg,#F0403A,#F5871F)"><div class="ph"><svg class="ic-svg" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span>Fotoğraf Yakında</span></div></div>
+    <div class="gal-item" data-type="video" style="background:linear-gradient(150deg,#141C4E,#0E9DE0)"><span class="vtag"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg> Video</span><div class="play"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.92)"/><polygon points="10 8 16 12 10 16" fill="#141C4E"/></svg></div></div>
+    <div class="gal-item" data-type="photo" style="background:linear-gradient(150deg,#0E9DE0,#0B6FB8)"><div class="ph"><svg class="ic-svg" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span>Fotoğraf Yakında</span></div></div>
+    <div class="gal-item" data-type="photo" style="background:linear-gradient(150deg,#3DAE3A,#2C8A2A)"><div class="ph"><svg class="ic-svg" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span>Fotoğraf Yakında</span></div></div>
+    <div class="gal-item" data-type="photo" style="background:linear-gradient(150deg,#7B3FA0,#EC4899)"><div class="ph"><svg class="ic-svg" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span>Fotoğraf Yakında</span></div></div>
+    <div class="gal-item" data-type="video" style="background:linear-gradient(150deg,#7B3FA0,#F0403A)"><span class="vtag"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg> Video</span><div class="play"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.92)"/><polygon points="10 8 16 12 10 16" fill="#141C4E"/></svg></div></div>
+    <div class="gal-item" data-type="photo" style="background:linear-gradient(150deg,#F5871F,#FFC220)"><div class="ph"><svg class="ic-svg" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span>Fotoğraf Yakında</span></div></div>
+    <div class="gal-item" data-type="photo" style="background:linear-gradient(150deg,#EC4899,#F0403A)"><div class="ph"><svg class="ic-svg" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span>Fotoğraf Yakında</span></div></div>
+    <div class="gal-item" data-type="video" style="background:linear-gradient(150deg,#0B6FB8,#3DAE3A)"><span class="vtag"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg> Video</span><div class="play"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.92)"/><polygon points="10 8 16 12 10 16" fill="#141C4E"/></svg></div></div>
+    <div class="gal-item" data-type="photo" style="background:linear-gradient(150deg,#FFC220,#F5871F)"><div class="ph"><svg class="ic-svg" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span>Fotoğraf Yakında</span></div></div>
+    <div class="gal-item" data-type="photo" style="background:linear-gradient(150deg,#141C4E,#7B3FA0)"><div class="ph"><svg class="ic-svg" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span>Fotoğraf Yakında</span></div></div>
+    <div class="gal-item" data-type="photo" style="background:linear-gradient(150deg,#3DAE3A,#0E9DE0)"><div class="ph"><svg class="ic-svg" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span>Fotoğraf Yakında</span></div></div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lb-close" id="lbClose" aria-label="Kapat"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button>
+  <button class="lb-nav prev" id="lbPrev" aria-label="Önceki"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+  <div class="lb-media" id="lbMedia"></div>
+  <button class="lb-nav next" id="lbNext" aria-label="Sonraki"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+</div>
+
+<footer><div class="wrap">
+  <div class="foot">
+    <div class="b"><img src="img/bizimkent-fest-logo.png" alt="Bizimkent FEST"><p><b>Birlikte daha güzeliz.</b> Komşuluk, sanat, müzik ve eğlenceyi bir araya getiren mahalle festivali. Dolmabahçe Okulları katkılarıyla.</p>
+      <div class="soc"><a href="https://www.instagram.com/bizimkentfest/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="tel:+905394901847" aria-label="Telefon"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a><a href="index.html#iletisim" aria-label="E-posta"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></a></div>
+    </div>
+    <div><h5>Keşfet</h5><ul><li><a href="index.html#hakkinda">Festival Nedir?</a></li><li><a href="index.html#program">Program</a></li><li><a href="galeri.html">Galeri</a></li><li><a href="komisyon.html">Komisyon</a></li></ul></div>
+    <div><h5>Katıl</h5><ul><li><a href="index.html#basvuru">Başvuru</a></li><li><a href="index.html#sponsorlar">Sponsorlar</a></li><li><a href="index.html#iletisim">İletişim</a></li></ul></div>
+  </div>
+  <div class="copy"><span>© 2026 Bizimkent FEST · Bizimkent Derneği</span><span>24–27 Eylül 2026 · #BirlikteDahaGüzeliz</span></div>
+</div></footer>
+
+<script>
+const burger=document.getElementById('burger'),nl=document.getElementById('navLinks');
+burger.addEventListener('click',()=>nl.classList.toggle('open'));
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const items=[...document.querySelectorAll('.gal-item')];
+const gtabs=document.querySelectorAll('.gtab');
+gtabs.forEach(t=>t.addEventListener('click',()=>{
+  gtabs.forEach(x=>x.classList.remove('active'));t.classList.add('active');
+  const f=t.dataset.f;
+  items.forEach(it=>{it.hidden=!(f==='all'||it.dataset.type===f)});
+}));
+
+const lb=document.getElementById('lb'),lbMedia=document.getElementById('lbMedia'),lbPrev=document.getElementById('lbPrev'),lbNext=document.getElementById('lbNext');
+const photoEls=items.filter(i=>i.dataset.full);
+let idx=0;
+function navBtns(show){lbPrev.style.display=lbNext.style.display=(show&&photoEls.length>1)?'grid':'none';}
+function showPhoto(i){idx=(i+photoEls.length)%photoEls.length;lbMedia.innerHTML='';const im=document.createElement('img');im.src=photoEls[idx].dataset.full;im.alt=(photoEls[idx].querySelector('img')||{}).alt||'';lbMedia.appendChild(im);lb.classList.add('open');navBtns(true);}
+function showVideo(el){lbMedia.innerHTML='';if(el.dataset.yt){const f=document.createElement('iframe');f.src='https://www.youtube.com/embed/'+el.dataset.yt+'?autoplay=1&rel=0';f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;lbMedia.appendChild(f);}else if(el.dataset.video){const v=document.createElement('video');v.src=el.dataset.video;v.controls=true;v.autoplay=true;v.playsInline=true;lbMedia.appendChild(v);}lb.classList.add('open');navBtns(false);}
+function closeLB(){lb.classList.remove('open');lbMedia.innerHTML='';}
+items.forEach(it=>it.addEventListener('click',()=>{
+  if(it.dataset.type==='video'&&(it.dataset.yt||it.dataset.video)){showVideo(it);}
+  else if(it.dataset.full){showPhoto(photoEls.indexOf(it));}
+}));
+document.getElementById('lbClose').addEventListener('click',closeLB);
+lb.addEventListener('click',e=>{if(e.target===lb)closeLB();});
+lbPrev.addEventListener('click',e=>{e.stopPropagation();showPhoto(idx-1);});
+lbNext.addEventListener('click',e=>{e.stopPropagation();showPhoto(idx+1);});
+document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLB();else if(e.key==='ArrowLeft')showPhoto(idx-1);else if(e.key==='ArrowRight')showPhoto(idx+1);});
+</script>
+</body>
+</html>

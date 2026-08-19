@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bizimkent FEST · 24–27 Eylül 2026</title>
+<meta name="description" content="Bizimkent FEST — komşuluk, sanat, müzik ve eğlence. 24–27 Eylül 2026, Beylikdüzü. Dolmabahçe Okulları katkılarıyla.">
+<link rel="icon" type="image/png" href="img/bizimkent-fest-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================
+   BIZIMKENT FEST — V2 "Editorial Minimal" (renkli & sade)
+   ========================================================== */
+:root{
+  --red:#F0403A; --blue:#0E9DE0; --green:#3DAE3A; --yellow:#FFC220;
+  --orange:#F5871F; --purple:#7B3FA0; --navy:#141C4E; --pink:#EC4899;
+  --ink:#161618; --muted:#6b6b72; --line:#e7e3da;
+  --bg:#FBF8F1; --card:#ffffff;
+  --maxw:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:'Poppins',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+h1,h2,h3{letter-spacing:-.03em;line-height:1.02;font-weight:700}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+::selection{background:var(--yellow)}
+.eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:middle}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.5em;font-weight:600;font-size:.95rem;padding:13px 24px;border-radius:100px;background:var(--ink);color:#fff;transition:transform .18s ease,background .18s;border:1.5px solid var(--ink)}
+.btn:hover{transform:translateY(-2px)}
+.btn--ghost{background:transparent;color:var(--ink)}
+.btn--ghost:hover{background:var(--ink);color:#fff}
+.btn--red{background:var(--red);border-color:var(--red)}
+.btn--blue{background:var(--blue);border-color:var(--blue)}
+
+/* nav */
+header{position:sticky;top:0;z-index:900;background:rgba(251,248,241,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:20px;max-width:var(--maxw);margin:0 auto;padding:14px 26px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.02em}
+.brand img{height:40px}
+.brand small{display:block;font-weight:600;font-size:.62rem;letter-spacing:.18em;color:var(--muted)}
+.nav-links{display:flex;gap:4px;margin-left:auto;align-items:center}
+.nav-links a{font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:8px 12px;border-radius:8px;transition:.15s}
+.nav-links a:hover{color:var(--ink);background:rgba(0,0,0,.04)}
+.nav-links .btn{margin-left:8px;padding:9px 18px;font-size:.85rem;color:#fff}
+.burger{display:none;margin-left:auto;background:none;border:1.5px solid var(--ink);border-radius:10px;width:46px;height:42px;font-size:1.2rem;cursor:pointer}
+@media(max-width:1000px){
+  .nav-links{position:fixed;inset:70px 14px auto 14px;flex-direction:column;background:var(--card);padding:14px;border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.12);display:none;align-items:stretch}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px;font-size:1rem}
+  .burger{display:block}
+}
+
+/* hero */
+.hero{padding:56px 0 40px;position:relative}
+.hero-badges{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.pill{display:inline-flex;align-items:center;gap:9px;background:var(--card);border:1px solid var(--line);border-radius:100px;padding:7px 15px 7px 8px;font-size:.82rem;font-weight:600}
+.pill img{height:26px;border-radius:6px}
+.pill b{color:var(--red)}
+.pill--sponsor{padding:9px 22px 9px 11px;gap:14px;box-shadow:0 8px 22px rgba(0,0,0,.07);border-color:var(--red)}
+.pill--sponsor img{height:52px;border-radius:8px}
+.sp-label{display:flex;flex-direction:column;line-height:1.15;text-align:left}
+.sp-label small{font-size:.66rem;font-weight:700;letter-spacing:.14em;color:var(--red)}
+.sp-label b{font-size:1.12rem;font-weight:700;color:var(--ink)}
+.pill--loc{padding:9px 22px 9px 16px;gap:12px;box-shadow:0 8px 22px rgba(0,0,0,.07)}
+.dot--lg{width:14px;height:14px}
+.sp-label--green small{color:var(--green)}
+@media(max-width:640px){.pill--sponsor img{height:42px}.sp-label b{font-size:1rem}}
+.hero h1{font-size:clamp(3.2rem,10vw,7.4rem);font-weight:800;letter-spacing:-.045em}
+.hero h1 .grad{background:linear-gradient(100deg,var(--red),var(--orange) 30%,var(--yellow) 48%,var(--green) 66%,var(--blue) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero .tag{font-family:'Instrument Serif';font-style:italic;font-size:clamp(1.5rem,4vw,2.6rem);color:var(--muted);margin-top:6px;letter-spacing:0;line-height:1.15;display:inline-block}
+.hero-sub{display:flex;gap:40px;flex-wrap:wrap;align-items:flex-end;margin-top:34px}
+.hero-sub p{max-width:46ch;font-size:1.08rem;color:#33333a}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:26px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:40px}
+.chip{font-size:.82rem;font-weight:500;padding:8px 15px;border-radius:100px;border:1px solid var(--line);background:var(--card);display:inline-flex;gap:8px;align-items:center}
+/* countdown row */
+.cd{display:inline-flex;gap:14px;flex-wrap:wrap;align-items:center;padding:8px 18px;border:1px solid var(--line);border-radius:100px;background:var(--card);margin-top:22px}
+.cd .u{text-align:center}
+.cd .u .n{font-size:clamp(1.4rem,2.2vw,1.85rem);font-weight:800;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.cd .u .l{font-size:.56rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.cd .sep{width:1px;height:32px;background:var(--line)}
+.cd-lead{font-family:'Instrument Serif';font-style:italic;font-size:1rem;color:var(--muted)}
+/* hero two-column + logo */
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:44px;align-items:center}
+.hero-logo-wrap{display:flex;justify-content:center;align-items:center;position:relative}
+.hero-logo-wrap::before{content:"";position:absolute;width:78%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,194,32,.28),rgba(240,64,58,.12) 55%,transparent 72%);filter:blur(6px);z-index:0}
+.hero-logo{width:min(100%,440px);position:relative;z-index:1;filter:drop-shadow(0 22px 40px rgba(0,0,0,.16));animation:floaty 6s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(-1.2deg)}50%{transform:translateY(-16px) rotate(1.2deg)}}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:16px}.hero-logo-wrap{order:-1}.hero-logo{width:min(70%,300px)}}
+/* logo divider band */
+.logo-band{text-align:center;padding:56px 26px;display:flex;flex-direction:column;align-items:center;gap:12px;border-top:1px solid var(--line)}
+.logo-band img{width:clamp(120px,18vw,180px);filter:drop-shadow(0 14px 26px rgba(0,0,0,.13));animation:floaty 7s ease-in-out infinite}
+.logo-band p{font-family:'Instrument Serif';font-style:italic;font-size:clamp(1.5rem,4vw,2.2rem);color:var(--ink);letter-spacing:0;line-height:1.15;max-width:22ch}
+.logo-band .k{font-size:.72rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+
+/* generic section */
+.sec{padding:82px 0;border-top:1px solid var(--line)}
+.sec-head{max-width:64ch;margin-bottom:44px}
+.sec-head h2{font-size:clamp(2rem,5vw,3.2rem);margin:14px 0 12px;font-weight:800;letter-spacing:-.04em}
+.sec-head p{color:var(--muted);font-size:1.05rem}
+.sec-head h2 .em{font-family:'Instrument Serif';font-style:italic;font-weight:400;letter-spacing:0}
+
+/* about */
+.about{display:grid;grid-template-columns:1.5fr 1fr;gap:50px;align-items:center}
+.about .lead{font-size:1.5rem;font-weight:500;letter-spacing:-.02em;line-height:1.35}
+.about .lead b{background:linear-gradient(transparent 62%,var(--yellow) 62%)}
+.about p{color:var(--muted);margin-top:18px}
+.quote-card{background:var(--navy);color:#fff;border-radius:26px;padding:38px 34px}
+.quote-card .q{font-family:'Instrument Serif';font-style:italic;font-size:2rem;line-height:1.15}
+.quote-card .q .c{color:var(--yellow)}
+.quote-card .s{margin-top:16px;font-size:.85rem;color:rgba(255,255,255,.7);letter-spacing:.03em}
+@media(max-width:820px){.about{grid-template-columns:1fr;gap:30px}}
+
+/* events — minimal color list */
+.ev-list{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line)}
+.ev{display:flex;gap:22px;align-items:flex-start;padding:26px 20px;border-bottom:1px solid var(--line);transition:.2s;position:relative}
+.ev:nth-child(odd){border-right:1px solid var(--line)}
+.ev:hover{background:var(--card)}
+.ev .no{font-size:.8rem;font-weight:700;color:var(--muted);width:28px;flex-shrink:0;padding-top:6px}
+.ev .ic{width:46px;height:46px;border-radius:14px;display:grid;place-content:center;font-size:1.4rem;flex-shrink:0}
+.ev h3{font-size:1.25rem;font-weight:700;letter-spacing:-.02em}
+.ev p{color:var(--muted);font-size:.92rem;margin-top:4px}
+@media(max-width:720px){.ev-list{grid-template-columns:1fr}.ev:nth-child(odd){border-right:none}}
+
+/* program */
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.tab{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:12px 18px;cursor:pointer;text-align:left;transition:.18s;min-width:112px}
+.tab .dnum{font-size:1.7rem;font-weight:800;letter-spacing:-.04em;line-height:1}
+.tab .dday{font-size:.78rem;color:var(--muted);font-weight:500}
+.tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tab.active .dday{color:rgba(255,255,255,.7)}
+.panel{display:none}.panel.active{display:block;animation:fade .45s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.slot{display:grid;grid-template-columns:96px 1fr auto;gap:20px;align-items:center;padding:18px 4px;border-bottom:1px solid var(--line)}
+.slot .t{font-weight:700;font-size:1.05rem;font-variant-numeric:tabular-nums}
+.slot .e b{font-weight:600;display:block}
+.slot .e span{color:var(--muted);font-size:.9rem}
+.slot .badge{font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:100px;color:#fff}
+@media(max-width:640px){.slot{grid-template-columns:70px 1fr;gap:12px}.slot .badge{grid-column:2}}
+
+/* artists / gallery minimal */
+.grid-min{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px}
+.acard{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
+.acard .top{height:150px;display:grid;place-content:center;text-align:center;color:#fff;font-weight:700;font-size:1.05rem;padding:12px}
+.acard .btm{padding:14px 16px}
+.acard .btm b{display:block}
+.acard .btm span{font-size:.8rem;color:var(--muted)}
+
+/* map */
+.map{border-radius:24px;overflow:hidden;border:1px solid var(--line);box-shadow:0 24px 60px rgba(0,0,0,.08);margin-top:8px}
+.map-legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+
+/* commission */
+.mem-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.mem{border:1px solid var(--line);border-radius:22px;background:var(--card);padding:24px;transition:.2s}
+.mem:hover{box-shadow:0 16px 40px rgba(0,0,0,.07);transform:translateY(-3px)}
+.mem .h{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.mem .av{width:56px;height:56px;border-radius:16px;display:grid;place-content:center;color:#fff;font-weight:800;font-size:1.15rem;flex-shrink:0;overflow:hidden}
+.mem .av img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.mem .h b{font-size:1.05rem;display:block;letter-spacing:-.02em}
+.mem .h span{font-size:.78rem;color:var(--red);font-weight:600}
+.mem p{color:var(--muted);font-size:.9rem}
+.mem.lead{grid-column:span 1;border-color:var(--red);background:linear-gradient(180deg,#fff,#fff7f6)}
+
+/* apply */
+.apply-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.ap{border:1px solid var(--line);border-radius:20px;padding:24px;background:var(--card);transition:.2s;display:flex;flex-direction:column;gap:10px}
+.ap:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(0,0,0,.08)}
+.ap .ic{width:48px;height:48px;border-radius:14px;display:grid;place-content:center;font-size:1.35rem;color:#fff}
+.ic-svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.burger .ic-svg{width:22px;height:22px}
+.ap b{font-size:1.1rem;letter-spacing:-.02em}
+.ap span{color:var(--muted);font-size:.88rem;flex:1}
+.ap .go{font-size:.82rem;font-weight:600;color:var(--ink)}
+
+/* sponsors */
+.sponsor-main{display:flex;gap:26px;align-items:center;border:1px solid var(--line);border-radius:24px;background:var(--card);padding:28px 32px;flex-wrap:wrap}
+.sponsor-main img{height:160px;max-width:100%;object-fit:contain}
+@media(max-width:640px){.sponsor-main img{height:120px}}
+.sponsor-main .em{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);font-weight:700}
+.sponsor-main b{font-size:1.4rem;letter-spacing:-.02em}
+.sponsor-main p{color:var(--muted);font-size:.92rem;margin-top:4px}
+.sp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:18px}
+.sp{border:1px solid var(--line);border-radius:16px;background:var(--card);padding:16px 20px;display:flex;gap:16px;align-items:center}
+.sp img{height:56px;width:auto;max-width:110px;object-fit:contain;flex-shrink:0}
+.sp-t{display:flex;flex-direction:column;gap:2px;min-width:0}
+.sp-t span{font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.sp-t b{font-size:1rem;font-weight:700;letter-spacing:-.01em}
+
+/* faq */
+.faq{max-width:800px;margin-top:8px}
+.q{border-bottom:1px solid var(--line)}
+.q button{width:100%;text-align:left;background:none;border:none;padding:22px 0;font-size:1.08rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;gap:16px;color:var(--ink);letter-spacing:-.01em}
+.q button .pm{color:var(--red);font-weight:400;font-size:1.5rem;transition:.25s}
+.q.open button .pm{transform:rotate(45deg)}
+.q .a{max-height:0;overflow:hidden;transition:max-height .32s ease;color:var(--muted)}
+.q .a p{padding-bottom:22px;max-width:70ch}
+
+/* contact */
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px}
+.info{display:grid;gap:14px;align-content:start}
+.ic-row{display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--line)}
+.ic-row .b{width:44px;height:44px;border-radius:12px;display:grid;place-content:center;font-size:1.2rem;flex-shrink:0}
+.ic-row .l{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:3px}
+.ic-row a,.ic-row p{font-weight:500;font-size:.98rem}
+.ic-row a:hover{color:var(--red)}
+form{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:30px}
+form label{display:block;font-size:.78rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:16px 0 7px}
+form label:first-child{margin-top:0}
+form input,form select,form textarea{width:100%;padding:13px 15px;border:1px solid var(--line);border-radius:12px;background:var(--bg);font-family:inherit;font-size:1rem;font-weight:500}
+form input:focus,form select:focus,form textarea:focus{outline:none;border-color:var(--blue);background:#fff}
+form textarea{resize:vertical;min-height:110px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fmsg{margin-top:16px;padding:14px 16px;border-radius:12px;background:#e9f9ea;color:var(--green-deep,#1c6b1a);border:1px solid #bfe6c0;font-weight:600;font-size:.92rem;display:none}
+.fmsg.show{display:block;animation:fade .4s}
+@media(max-width:820px){.contact{grid-template-columns:1fr}.frow{grid-template-columns:1fr}}
+
+/* footer */
+footer{background:var(--navy);color:#fff;padding:64px 0 34px;margin-top:40px}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px}
+.foot .b img{height:125px;margin-bottom:16px}
+.foot .b p{color:rgba(255,255,255,.72);font-size:.9rem;max-width:34ch}
+.foot .b p b{color:#fff}
+.foot h5{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:14px}
+.foot ul{list-style:none;display:grid;gap:9px}
+.foot ul a{font-size:.92rem;color:rgba(255,255,255,.82);font-weight:500}
+.foot ul a:hover{color:var(--yellow)}
+.foot .soc{display:flex;gap:10px;margin-top:14px}
+.foot .soc a{width:42px;height:42px;border-radius:12px;border:1px solid rgba(255,255,255,.22);display:grid;place-content:center;font-size:1.05rem;transition:.15s}
+.foot .soc a:hover{background:rgba(255,255,255,.14)}
+.copy{margin-top:38px;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.82rem;color:rgba(255,255,255,.6)}
+@media(max-width:760px){.foot{grid-template-columns:1fr 1fr}}
+
+.vswitch{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:950;background:var(--ink);color:#fff;border-radius:100px;padding:7px 8px;display:flex;gap:4px;font-size:.78rem;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.vswitch a{padding:7px 14px;border-radius:100px;font-weight:600;color:rgba(255,255,255,.6)}
+.vswitch a.on{background:#fff;color:var(--ink)}
+</style>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <a href="#top" class="brand"><img src="img/bizimkent-fest-logo.png" alt="Bizimkent FEST"><span>BİZİMKENT FEST</span></a>
+    <button class="burger" id="burger" aria-label="Menü"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    <div class="nav-links" id="navLinks">
+      <a href="#hakkinda">Festival</a>
+      <a href="#harita">Festival Alanı</a>
+      <a href="#etkinlikler">Etkinlikler</a>
+      <a href="#program">Program</a>
+      <a href="komisyon.html">Komisyon</a>
+      <a href="galeri.html">Galeri</a>
+      <a href="#sponsorlar">Sponsorlar</a>
+      <a href="#iletisim">İletişim</a>
+      <a href="#basvuru" class="btn btn--red">Başvur</a>
+    </div>
+  </nav>
+</header>
+<span id="top"></span>
+
+<!-- HERO -->
+<section class="hero"><div class="wrap">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-badges reveal">
+        <span class="pill pill--sponsor"><img src="img/Dolmabahce-okullari-logo.jpg" alt="Dolmabahçe Okulları"><span class="sp-label"><small>KATKILARIYLA</small><b>Dolmabahçe Okulları</b></span></span>
+      </div>
+      <h1 class="reveal">Bizimkent <span class="grad">FEST</span><br><span class="tag serif">bir komşuluk buluşması.</span></h1>
+      <div class="cd reveal" id="cd">
+        <span class="cd-lead">Bizimkent FEST'in başlamasına</span>
+        <div class="u"><div class="n" id="cd-d">00</div><div class="l">Gün</div></div><div class="sep"></div>
+        <div class="u"><div class="n" id="cd-h">00</div><div class="l">Saat</div></div><div class="sep"></div>
+        <div class="u"><div class="n" id="cd-m">00</div><div class="l">Dakika</div></div><div class="sep"></div>
+        <div class="u"><div class="n" id="cd-s">00</div><div class="l">Saniye</div></div>
+      </div>
+      <div class="hero-sub reveal">
+        <p>Aynı yaşam alanını paylaştığımız komşularımızla; sanatın, müziğin, sporun ve sohbetin içinde buluşuyoruz. Dört gün, sayısız etkinlik, tek bir mahalle ruhu.</p>
+        <div class="hero-cta">
+          <a href="#program" class="btn">Programı Gör</a>
+          <a href="#basvuru" class="btn btn--ghost">Festivale Katıl</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-logo-wrap reveal">
+      <img class="hero-logo" src="img/bizimkent-fest-logo.png" alt="Bizimkent FEST karnaval maskesi logosu">
+    </div>
+  </div>
+  <div class="chips reveal">
+    <span class="chip"><span class="dot" style="background:var(--red)"></span> Canlı Müzik</span>
+    <span class="chip"><span class="dot" style="background:var(--blue)"></span> Atölyeler</span>
+    <span class="chip"><span class="dot" style="background:var(--green)"></span> Turnuvalar</span>
+    <span class="chip"><span class="dot" style="background:var(--purple)"></span> Açık Hava Sineması</span>
+    <span class="chip"><span class="dot" style="background:var(--orange)"></span> Bizim Star</span>
+    <span class="chip"><span class="dot" style="background:var(--pink)"></span> Bizim Pazar</span>
+  </div>
+</div></section>
+
+<!-- HAKKINDA -->
+<section class="sec" id="hakkinda"><div class="wrap">
+  <div class="sec-head reveal"><span class="eyebrow">Festival Nedir?</span>
+    <h2>Bizimkent'te <span class="em">festival zamanı</span></h2></div>
+  <div class="about">
+    <div class="reveal">
+      <p class="lead">Amacımız sadece bir festival düzenlemek değil; komşularımızla <b>tanışmak</b>, sitemizdeki yetenekleri keşfetmek, birlikte üretmek ve Bizimkent'in enerjisini hep birlikte yaşamak.</p>
+      <p>Bizimkent site içi havuz çevresinde ve spor sahalarında gerçekleşecek bu dört gün; ailenin bir araya geldiği, ödüllerin verildiği ve unutulmaz anıların yaşandığı bir festival olacak. Başvurulardan sonra Festival Komisyonu'nun kürasyonu ile nihai program ortaya çıkacaktır.</p>
+    </div>
+    <div class="quote-card reveal">
+      <div class="q">Çünkü biz inanıyoruz:<br><span class="c">Birlikte daha güzeliz.</span></div>
+      <div class="s">— Bizimkent FEST Komisyonu</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- FESTİVAL ALANI / HARİTA -->
+<section class="sec" id="harita"><div class="wrap">
+  <div class="sec-head reveal"><span class="eyebrow">Festival Alanı</span>
+    <h2>Dört gün, <span class="em">tek bir meydan</span></h2>
+    <p>Sahne, stantlar, atölyeler, çocuk parkı, açık hava sineması ve spor sahaları — havuz çevresi ve spor alanları baştan sona festivale dönüşüyor. İşte tüm alanın krokisi:</p></div>
+  <div class="map reveal"><img src="img/festival-krokisi.png" alt="Bizimkent FEST festival alanları krokisi"></div>
+  <div class="map-legend reveal">
+    <span class="chip"><span class="dot" style="background:var(--purple)"></span> Sahne</span>
+    <span class="chip"><span class="dot" style="background:var(--blue)"></span> Standlar & Bizim Pazar</span>
+    <span class="chip"><span class="dot" style="background:var(--green)"></span> Atölyeler</span>
+    <span class="chip"><span class="dot" style="background:var(--orange)"></span> Yeme İçme</span>
+    <span class="chip"><span class="dot" style="background:var(--red)"></span> Çocuk Parkı</span>
+    <span class="chip"><span class="dot" style="background:var(--navy)"></span> Spor Turnuvaları</span>
+    <span class="chip"><span class="dot" style="background:var(--pink)"></span> Açık Hava Sineması</span>
+  </div>
+</div></section>
+
+<!-- ETKİNLİKLER -->
+<section class="sec" id="etkinlikler"><div class="wrap">
+  <div class="sec-head reveal"><span class="eyebrow">Etkinlikler</span>
+    <h2>Herkes için, <span class="em">hep birlikte</span></h2>
+    <p>Çocuklardan gençlere, yetişkinlerden ileri yaşlara — herkesin kendine yer bulacağı bir program.</p></div>
+  <div class="ev-list reveal">
+    <div class="ev"><span class="no">01</span><div class="ic" style="background:#fdecec;color:var(--red)"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg></div><div><h3>Müzik</h3><p>Canlı performanslar, DJ setleri ve Bizim Star ödüllü ses yarışması.</p></div></div>
+    <div class="ev"><span class="no">02</span><div class="ic" style="background:#e6f5fc;color:var(--blue)"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="13.5" cy="6.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="17.5" cy="10.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="8.5" cy="7.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="6.5" cy="12.5" r="1.3" fill="currentColor" stroke="none"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.5-.7 1.5-1.5 0-.4-.2-.8-.4-1-.3-.3-.4-.6-.4-1 0-.8.7-1.5 1.5-1.5H16c3.3 0 6-2.7 6-6 0-5.5-4.5-9-10-9z"/></svg></div><div><h3>Atölyeler</h3><p>Çocuk ve yetişkinler için el işi ve yaratıcı atölye çalışmaları.</p></div></div>
+    <div class="ev"><span class="no">03</span><div class="ic" style="background:#e9f6e8;color:var(--green)"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div><h3>Spor</h3><p>Adalar arası voleybol, basketbol, futbol turnuvaları ve Zumba.</p></div></div>
+    <div class="ev"><span class="no">04</span><div class="ic" style="background:#f2e9f7;color:var(--purple)"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="2.5"/><line x1="7" y1="2.5" x2="7" y2="21.5"/><line x1="17" y1="2.5" x2="17" y2="21.5"/><line x1="2.5" y1="12" x2="21.5" y2="12"/><line x1="2.5" y1="7.25" x2="7" y2="7.25"/><line x1="2.5" y1="16.75" x2="7" y2="16.75"/><line x1="17" y1="16.75" x2="21.5" y2="16.75"/><line x1="17" y1="7.25" x2="21.5" y2="7.25"/></svg></div><div><h3>Sinema</h3><p>Açık hava sineması; özel konuk söyleşisi ve film gösterimleri.</p></div></div>
+    <div class="ev"><span class="no">05</span><div class="ic" style="background:#fef0e2;color:var(--orange)"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><div><h3>Çocuk</h3><p>Şişme oyun parkı, çocuk atölyeleri ve aile etkinlikleri.</p></div></div>
+    <div class="ev"><span class="no">06</span><div class="ic" style="background:#fdeaf4;color:var(--pink)"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div><div><h3>Bizim Pazar</h3><p>Komşuların ürünlerini paylaştığı renkli stant ve pazar alanı.</p></div></div>
+  </div>
+</div></section>
+
+<!-- LOGO ŞERİDİ -->
+<div class="logo-band reveal">
+  <img src="img/bizimkent-fest-logo.png" alt="Bizimkent FEST">
+  <p>Sadece bir festival değil, bir komşuluk buluşması.</p>
+  <span class="k">24–27 Eylül 2026 · Bizimkent</span>
+</div>
+
+<!-- PROGRAM -->
+<section class="sec" id="program"><div class="wrap">
+  <div class="sec-head reveal"><span class="eyebrow">Program · 24–27 Eylül</span>
+    <h2>Dört gün, <span class="em">dört dünya</span></h2>
+    <p>Program taslaktır; başvurular sonrası komisyon kürasyonu ile kesinleşecektir.</p></div>
+  <div class="tabs reveal" id="tabs">
+    <button class="tab active" data-d="0"><div class="dnum">24</div><div class="dday">Perşembe</div></button>
+    <button class="tab" data-d="1"><div class="dnum">25</div><div class="dday">Cuma</div></button>
+    <button class="tab" data-d="2"><div class="dnum">26</div><div class="dday">Cumartesi</div></button>
+    <button class="tab" data-d="3"><div class="dnum">27</div><div class="dday">Pazar</div></button>
+  </div>
+  <div class="reveal">
+    <div class="panel active" data-d="0">
+      <div class="slot"><span class="t">17:00</span><div class="e"><b>Açılış & Kortej</b><span>Kapılar açılıyor</span></div><span class="badge" style="background:var(--red)">Açılış</span></div>
+      <div class="slot"><span class="t">18:00</span><div class="e"><b>Bizim Pazar Kuruluyor</b><span>Stantlar ve el işi atölyeleri</span></div><span class="badge" style="background:var(--pink)">Pazar</span></div>
+      <div class="slot"><span class="t">19:30</span><div class="e"><b>Açılış Konseri</b><span>Dernek sanatçıları sahnede</span></div><span class="badge" style="background:var(--blue)">Müzik</span></div>
+      <div class="slot"><span class="t">21:00</span><div class="e"><b>DJ Performansı</b><span>Havuz başında açılış partisi</span></div><span class="badge" style="background:var(--purple)">DJ</span></div>
+    </div>
+    <div class="panel" data-d="1">
+      <div class="slot"><span class="t">16:00</span><div class="e"><b>Çocuk Atölyeleri</b><span>Yaratıcı atölye alanı</span></div><span class="badge" style="background:var(--orange)">Çocuk</span></div>
+      <div class="slot"><span class="t">18:00</span><div class="e"><b>Talk Show & Söyleşi</b><span>Özel konuk sohbeti</span></div><span class="badge" style="background:var(--navy)">Söyleşi</span></div>
+      <div class="slot"><span class="t">20:00</span><div class="e"><b>Bizim Star — Elemeler</b><span>Ödüllü ses yarışması</span></div><span class="badge" style="background:var(--red)">Yarışma</span></div>
+      <div class="slot"><span class="t">21:30</span><div class="e"><b>Açık Hava Sineması</b><span>Cuma özel gösterimi</span></div><span class="badge" style="background:var(--purple)">Sinema</span></div>
+    </div>
+    <div class="panel" data-d="2">
+      <div class="slot"><span class="t">15:00</span><div class="e"><b>Zumba & Hareket</b><span>Herkes için açık hava dersi</span></div><span class="badge" style="background:var(--green)">Spor</span></div>
+      <div class="slot"><span class="t">17:00</span><div class="e"><b>Yetişkin El İşi Atölyesi</b><span>Üret, paylaş, sergile</span></div><span class="badge" style="background:var(--blue)">Atölye</span></div>
+      <div class="slot"><span class="t">19:00</span><div class="e"><b>Misafir Sanatçı Konseri</b><span>Ana sahne performansı</span></div><span class="badge" style="background:var(--red)">Müzik</span></div>
+      <div class="slot"><span class="t">21:30</span><div class="e"><b>Açık Hava Sineması</b><span>Cumartesi özel gösterimi & söyleşi</span></div><span class="badge" style="background:var(--purple)">Sinema</span></div>
+    </div>
+    <div class="panel" data-d="3">
+      <div class="slot"><span class="t">11:00</span><div class="e"><b>Turnuva Finalleri</b><span>Voleybol · Basketbol · Futbol</span></div><span class="badge" style="background:var(--green)">Spor</span></div>
+      <div class="slot"><span class="t">16:00</span><div class="e"><b>Aile Etkinlikleri</b><span>Şişme oyun parkı & oyunlar</span></div><span class="badge" style="background:var(--orange)">Çocuk</span></div>
+      <div class="slot"><span class="t">19:00</span><div class="e"><b>Bizim Star — Final</b><span>Ödül töreni & büyük final</span></div><span class="badge" style="background:var(--red)">Final</span></div>
+      <div class="slot"><span class="t">21:00</span><div class="e"><b>Kapanış Konseri</b><span>Hep birlikte büyük final</span></div><span class="badge" style="background:var(--navy)">Kapanış</span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- SANATÇILAR -->
+<section class="sec" id="sanatcilar"><div class="wrap">
+  <div class="sec-head reveal"><span class="eyebrow">Sanatçılar</span>
+    <h2>Sahnenin <span class="em">yıldızları</span></h2>
+    <p>Dernek sanatçıları ve misafir sanatçılar sahnede. Kadro, kürasyon sonrası açıklanacak.</p></div>
+  <div class="grid-min reveal">
+    <div class="acard"><div class="top" style="background:linear-gradient(135deg,var(--red),var(--orange))">DİAPASON<br>Müzik Grubu</div><div class="btm"><b>DIAPASON</b><span>Canlı Müzik</span></div></div>
+    <div class="acard"><div class="top" style="background:linear-gradient(135deg,var(--blue),#0B6FB8)">Türk Müziği<br>Topluluğu</div><div class="btm"><b>Dernek Korosu</b><span>Dernek Sanatçıları</span></div></div>
+    <div class="acard"><div class="top" style="background:linear-gradient(135deg,var(--green),#2C8A2A)">Misafir<br>Sanatçı</div><div class="btm"><b>Yakında</b><span>Ana Sahne</span></div></div>
+    <div class="acard"><div class="top" style="background:linear-gradient(135deg,var(--purple),var(--pink))">Bizim Star</div><div class="btm"><b>Finalistler</b><span>Ses Yarışması</span></div></div>
+  </div>
+</div></section>
+
+<!-- KOMİSYON -->
+<section class="sec" id="komisyon"><div class="wrap">
+  <div class="sec-head reveal"><span class="eyebrow">Festival Komisyonu</span>
+    <h2>Perde arkasının <span class="em">kahramanları</span></h2>
+    <p>Bizimkent FEST'i hayata geçiren komşularımız. Her birinin hikâyesini merak ediyorsan, komisyon sayfasında detaylı tanıyabilirsin.</p></div>
+  <div class="mem-grid reveal">
+    <div class="mem lead"><div class="h"><div class="av" style="background:var(--red)"><img src="img/komisyon/murat-gonullu.jpg" alt="Murat GÖNÜLLÜ"></div><div><b>Murat GÖNÜLLÜ</b><span>Komisyon Başkanı</span></div></div><p>Yönetmen, sosyolog ve sanatçı. Festivalin planlama, organizasyon ve iletişim süreçlerine liderlik ediyor; AjansLabs ile marka iletişimi, yaratıcı içerik ve tasarım desteği sunuyor.</p></div>
+    <div class="mem"><div class="h"><div class="av" style="background:var(--blue)"><img src="img/komisyon/ishak-akbay.jpg" alt="İshak AKBAY"></div><div><b>İshak AKBAY</b><span>Üye & Sunucu</span></div></div><p>Sahne enerjisi ve güçlü sunumuyla kültür-sanat etkinliklerinin aranan ismi. Festivale profesyonel sahne dokunuşunu katıyor.</p></div>
+    <div class="mem"><div class="h"><div class="av" style="background:var(--green)"><img src="img/komisyon/baris-akengin.jpg" alt="Barış AKENGİN"></div><div><b>Barış AKENGİN</b><span>Üye</span></div></div><p>Kültür-sanat organizasyonlarından sorumlu; tiyatro oyuncusu ve yönetmeni, DİAPASON üyesi. Komşular ve gençlerle keyifli bir festival diliyor. 💜</p></div>
+    <div class="mem"><div class="h"><div class="av" style="background:var(--purple)"><img src="img/komisyon/derya-alkas.jpg" alt="Derya ALKAŞ"></div><div><b>Derya ALKAŞ</b><span>Üye</span></div></div><p>Sponsorluk, workshop ve stant alanlarının yönetiminde görevli. Kişi, kurum ve markaları festival çatısında buluşturuyor. 💜</p></div>
+    <div class="mem"><div class="h"><div class="av" style="background:var(--orange)"><img src="img/komisyon/semra-okay.jpg" alt="Semra OKAY"></div><div><b>Semra OKAY</b><span>Üye</span></div></div><p>Bizimkent Türk Müziği Topluluğu Koro Başkanı. Çocuk ve yetişkinler için eğlenceli, yaratıcı yarışmalar hazırlıyor.</p></div>
+    <div class="mem"><div class="h"><div class="av" style="background:var(--navy)"><img src="img/komisyon/erkut-ozgani.jpg" alt="Erkut ÖZGANİ"></div><div><b>Erkut ÖZGANİ</b><span>Üye · Spor Sorumlusu</span></div></div><p>Eski Eczacıbaşı voleybolcusu ve koçu; BESS PHOTO ile gönüllü sponsor. Turnuvaların fikir babası ve spor sorumlusu.</p></div>
+    <div class="mem"><div class="h"><div class="av" style="background:var(--pink)"><img src="img/komisyon/cengiz-karadag.jpg" alt="Cengiz KARADAĞ"></div><div><b>Cengiz KARADAĞ</b><span>Üye</span></div></div><p>40+ yıldır THM'ye gönül vermiş; 100'ü aşkın şiiri, 30'u aşkın bestesi var. Dernek yönetiminde kültürel faaliyetlerden sorumlu.</p></div>
+    <div class="mem"><div class="h"><div class="av" style="background:var(--red)"><img src="img/komisyon/mehmet-demirkan.jpg" alt="Mehmet DEMİRKAN"></div><div><b>Mehmet DEMİRKAN</b><span>Üye</span></div></div><p>Mühendis, gitarist, besteci ve DİAPASON üyesi. Müzik onun için insanlarla bağ kurmanın en güzel yolu.</p></div>
+  </div>
+  <div style="margin-top:28px" class="reveal"><a href="komisyon.html" class="btn">Komisyonu Detaylı Tanı →</a></div>
+</div></section>
+
+<!-- BAŞVURU -->
+<section class="sec" id="basvuru"><div class="wrap">
+  <div class="sec-head reveal"><span class="eyebrow">Başvuru & Katılım</span>
+    <h2>Sen de <span class="em">sahneye çık</span></h2>
+    <p>Tüm başvurular tek bir form üzerinden alınıyor.</p></div>
+  <div class="apply-grid reveal">
+    <a class="ap" href="https://docs.google.com/forms/d/e/1FAIpQLScKzhvUTpfxC83v3uM43p08yPmAYcmqSkzlvkHlrxdVjkboiA/viewform" target="_blank" rel="noopener"><div class="ic" style="background:var(--red)"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><b>Gönüllü Ol</b><span>Festival ekibinin bir parçası ol.</span><span class="go">Başvur →</span></a>
+    <a class="ap" href="https://docs.google.com/forms/d/e/1FAIpQLScKzhvUTpfxC83v3uM43p08yPmAYcmqSkzlvkHlrxdVjkboiA/viewform" target="_blank" rel="noopener"><div class="ic" style="background:var(--blue)"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="13.5" cy="6.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="17.5" cy="10.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="8.5" cy="7.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="6.5" cy="12.5" r="1.3" fill="currentColor" stroke="none"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.5-.7 1.5-1.5 0-.4-.2-.8-.4-1-.3-.3-.4-.6-.4-1 0-.8.7-1.5 1.5-1.5H16c3.3 0 6-2.7 6-6 0-5.5-4.5-9-10-9z"/></svg></div><b>Atölye</b><span>Çocuk ya da yetişkin atölyesi yürüt.</span><span class="go">Başvur →</span></a>
+    <a class="ap" href="https://docs.google.com/forms/d/e/1FAIpQLScKzhvUTpfxC83v3uM43p08yPmAYcmqSkzlvkHlrxdVjkboiA/viewform" target="_blank" rel="noopener"><div class="ic" style="background:var(--green)"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg></div><b>Turnuva</b><span>Takımınla turnuvaya katıl.</span><span class="go">Başvur →</span></a>
+    <a class="ap" href="https://docs.google.com/forms/d/e/1FAIpQLScKzhvUTpfxC83v3uM43p08yPmAYcmqSkzlvkHlrxdVjkboiA/viewform" target="_blank" rel="noopener"><div class="ic" style="background:var(--orange)"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div><b>Stant</b><span>Bizim Pazar'da yerini al.</span><span class="go">Başvur →</span></a>
+    <a class="ap" href="https://docs.google.com/forms/d/e/1FAIpQLScKzhvUTpfxC83v3uM43p08yPmAYcmqSkzlvkHlrxdVjkboiA/viewform" target="_blank" rel="noopener"><div class="ic" style="background:var(--purple)"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg></div><b>Sanatçı</b><span>Sahnede performansınla yer al.</span><span class="go">Başvur →</span></a>
+    <a class="ap" href="#iletisim"><div class="ic" style="background:var(--navy)"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div><b>Sponsor Ol</b><span>Festivali destekle, markanı buluştur.</span><span class="go">İletişim →</span></a>
+  </div>
+  <div style="margin-top:26px"><a class="btn btn--red" href="https://docs.google.com/forms/d/e/1FAIpQLScKzhvUTpfxC83v3uM43p08yPmAYcmqSkzlvkHlrxdVjkboiA/viewform" target="_blank" rel="noopener">Başvuru Formunu Doldur →</a></div>
+</div></section>
+
+<!-- SPONSORLAR -->
+<section class="sec" id="sponsorlar"><div class="wrap">
+  <div class="sec-head reveal"><span class="eyebrow">Sponsorlar</span>
+    <h2>Bize <span class="em">güç katanlar</span></h2></div>
+  <div class="sponsor-main reveal">
+    <img src="img/SPONSORLAR/dolmabahce-okullari.jpeg" alt="Dolmabahçe Okulları">
+    <div><div class="em">Ana Sponsor</div><b>Dolmabahçe Okulları</b><p>Bizimkent FEST, Dolmabahçe Okulları katkılarıyla düzenlenmektedir.</p></div>
+  </div>
+  <div class="sp-grid reveal">
+    <div class="sp"><img src="img/SPONSORLAR/as-favori.png" alt="As Favori"><div class="sp-t"><span>Gümüş Sponsor</span><b>As Favori</b></div></div>
+    <div class="sp"><img src="img/SPONSORLAR/arev-okullari.webp" alt="Arev Okulları"><div class="sp-t"><span>Bronz Sponsor</span><b>Arev Okulları</b></div></div>
+    <div class="sp"><img src="img/SPONSORLAR/medicana.png" alt="Medicana"><div class="sp-t"><span>Bronz Sponsor</span><b>Medicana</b></div></div>
+    <div class="sp"><img src="img/SPONSORLAR/ajanslabs.png" alt="AjansLabs"><div class="sp-t"><span>Ajans Sponsoru</span><b>AjansLabs</b></div></div>
+    <div class="sp"><img src="img/SPONSORLAR/bess-photo.jpg" alt="BESS PHOTO"><div class="sp-t"><span>Hizmet Sponsoru</span><b>BESS PHOTO</b></div></div>
+    <div class="sp"><img src="img/bizimkent-dernek-logo.png" alt="Bizimkent Derneği"><div class="sp-t"><span>Organizasyon</span><b>Bizimkent Derneği</b></div></div>
+  </div>
+</div></section>
+
+<!-- SSS -->
+<section class="sec" id="sss"><div class="wrap">
+  <div class="sec-head reveal"><span class="eyebrow">SSS</span><h2>Merak <span class="em">ettiklerin</span></h2></div>
+  <div class="faq reveal">
+    <div class="q"><button>Bizimkent FEST ne zaman ve nerede? <span class="pm">+</span></button><div class="a"><p>24–27 Eylül 2026 tarihlerinde, Bizimkent site içi, güney havuz çevresi ve spor alanlarında.</p></div></div>
+    <div class="q"><button>Katılım ücretli mi? <span class="pm">+</span></button><div class="a"><p>Hayır. Festival katılımı ücretsizdir.</p></div></div>
+    <div class="q"><button>Nasıl başvuru yaparım? <span class="pm">+</span></button><div class="a"><p>Web sitesindeki başvuru butonlarına tıklayarak Google Form üzerinden ya da site içindeki spor alanları bölgesindeki festival başvuru masasından başvurabilirsiniz.</p></div></div>
+    <div class="q"><button>Çocuklar için etkinlik var mı? <span class="pm">+</span></button><div class="a"><p>Evet var. Başvuru formunu doldurarak çocuk atölyelerine ön başvuru yapabilirsiniz.</p></div></div>
+    <div class="q"><button>Sponsor olmak istiyorum. <span class="pm">+</span></button><div class="a"><p>İletişim sayfasındaki formu doldurarak festivalimizin sponsorlarından biri olabilirsiniz.</p></div></div>
+  </div>
+</div></section>
+
+<!-- LOGO ŞERİDİ -->
+<div class="logo-band reveal">
+  <img src="img/bizimkent-fest-logo.png" alt="Bizimkent FEST">
+  <p>Birlikte daha güzeliz. Seni de aramızda görmek isteriz!</p>
+  <span class="k">#BirlikteDahaGüzeliz</span>
+</div>
+
+<!-- İLETİŞİM -->
+<section class="sec" id="iletisim"><div class="wrap">
+  <div class="sec-head reveal"><span class="eyebrow">İletişim</span><h2>Bize <span class="em">ulaş</span></h2></div>
+  <div class="contact">
+    <div class="info reveal">
+      <div class="ic-row"><div class="b" style="background:#fdecec;color:var(--red)"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="l">Adres</div><p>Bizimkent Eğitim Kültür Çevre Koruma ve Güzelleştirme Derneği · Cumhuriyet Mah. Derviş Eroğlu Cad. No:26, Bizimkent Yönetim Binası, Beylikdüzü / İstanbul</p></div></div>
+      <div class="ic-row"><div class="b" style="background:#e6f5fc;color:var(--blue)"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="l">Telefon</div><a href="tel:+905394901847">+90 539 490 18 47</a></div></div>
+      <div class="ic-row"><div class="b" style="background:#fdeaf4;color:var(--pink)"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><div><div class="l">Instagram</div><a href="https://www.instagram.com/bizimkentfest/" target="_blank" rel="noopener">@bizimkentfest</a></div></div>
+      <div class="ic-row"><div class="b" style="background:#e9f6e8;color:var(--green)"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div><div><div class="l">Başvuru Formu</div><a href="https://docs.google.com/forms/d/e/1FAIpQLScKzhvUTpfxC83v3uM43p08yPmAYcmqSkzlvkHlrxdVjkboiA/viewform" target="_blank" rel="noopener">Formu Aç →</a></div></div>
+    </div>
+    <form id="cform" class="reveal" action="https://formsubmit.co/ajax/info@ajanslabs.com" method="POST" novalidate>
+      <input type="hidden" name="_subject" value="Bizimkent FEST · Yeni iletişim mesajı">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label for="ad">Ad Soyad</label><input id="ad" name="ad" placeholder="Adınız Soyadınız" required>
+      <div class="frow">
+        <div><label for="email">E-posta</label><input id="email" name="email" type="email" placeholder="ornek@eposta.com" required></div>
+        <div><label for="tel">Telefon</label><input id="tel" name="tel" placeholder="05XX XXX XX XX"></div>
+      </div>
+      <label for="konu">Konu</label>
+      <select id="konu" name="konu"><option>Genel Bilgi</option><option>Gönüllü</option><option>Atölye</option><option>Turnuva</option><option>Stant</option><option>Sanatçı</option><option>Sponsorluk</option></select>
+      <label for="mesaj">Mesajınız</label><textarea id="mesaj" name="mesaj" placeholder="Bize kısaca yazın..." required></textarea>
+      <div style="margin-top:18px"><button type="submit" class="btn btn--red" style="width:100%;justify-content:center">Mesajı Gönder</button></div>
+      <div class="fmsg" id="fmsg">🎉 Teşekkürler! Mesajınız hazırlandı. +90 539 490 18 47 veya @bizimkentfest üzerinden de ulaşabilirsiniz.</div>
+    </form>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="foot">
+    <div class="b"><img src="img/bizimkent-fest-logo.png" alt="Bizimkent FEST"><p><b>Birlikte daha güzeliz.</b> Komşuluk, sanat, müzik ve eğlenceyi bir araya getiren mahalle festivali. Dolmabahçe Okulları katkılarıyla.</p>
+      <div class="soc"><a href="https://www.instagram.com/bizimkentfest/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="tel:+905394901847" aria-label="Telefon"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a><a href="#iletisim" aria-label="E-posta"><svg class="ic-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></a></div>
+    </div>
+    <div><h5>Keşfet</h5><ul><li><a href="#hakkinda">Festival Nedir?</a></li><li><a href="#program">Program</a></li><li><a href="galeri.html">Galeri</a></li><li><a href="#etkinlikler">Etkinlikler</a></li><li><a href="#harita">Harita</a></li></ul></div>
+    <div><h5>Katıl</h5><ul><li><a href="#basvuru">Başvuru</a></li><li><a href="komisyon.html">Komisyon</a></li><li><a href="#sponsorlar">Sponsorlar</a></li><li><a href="#sss">SSS</a></li></ul></div>
+    <div><h5>İletişim</h5><ul><li><a href="tel:+905394901847">+90 539 490 18 47</a></li><li><a href="https://www.instagram.com/bizimkentfest/" target="_blank" rel="noopener">@bizimkentfest</a></li><li><a href="#iletisim">Beylikdüzü, İstanbul</a></li></ul></div>
+  </div>
+  <div class="copy"><span>© 2026 Bizimkent FEST · Bizimkent Derneği</span><span>24–27 Eylül 2026 · #BirlikteDahaGüzeliz</span></div>
+</div></footer>
+
+<script>
+const burger=document.getElementById('burger'),nl=document.getElementById('navLinks');
+burger.addEventListener('click',()=>nl.classList.toggle('open'));
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const target=new Date('2026-09-24T16:00:00+03:00').getTime();
+const cdD=document.getElementById('cd-d'),cdH=document.getElementById('cd-h'),cdM=document.getElementById('cd-m'),cdS=document.getElementById('cd-s');
+function tick(){const d=target-Date.now();if(d<0){document.getElementById('cd').innerHTML='<span class="cd-lead">Festival başladı! 🎉</span>';return}
+const D=Math.floor(d/864e5),H=Math.floor(d%864e5/36e5),M=Math.floor(d%36e5/6e4),S=Math.floor(d%6e4/1e3);
+cdD.textContent=String(D).padStart(2,'0');cdH.textContent=String(H).padStart(2,'0');cdM.textContent=String(M).padStart(2,'0');cdS.textContent=String(S).padStart(2,'0');}
+tick();setInterval(tick,1000);
+const tabs=document.querySelectorAll('.tab'),panels=document.querySelectorAll('.panel');
+tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));panels.forEach(x=>x.classList.remove('active'));t.classList.add('active');document.querySelector('.panel[data-d="'+t.dataset.d+'"]').classList.add('active')}));
+document.querySelectorAll('.faq .q button').forEach(b=>b.addEventListener('click',()=>{const q=b.parentElement,a=q.querySelector('.a'),open=q.classList.contains('open');document.querySelectorAll('.faq .q').forEach(i=>{i.classList.remove('open');i.querySelector('.a').style.maxHeight=null});if(!open){q.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}}));
+const f=document.getElementById('cform'),fm=document.getElementById('fmsg'),fbtn=f.querySelector('button[type="submit"]');
+f.addEventListener('submit',async e=>{
+  e.preventDefault();
+  if(!f.checkValidity()){f.reportValidity();return}
+  fbtn.disabled=true;fbtn.textContent='Gönderiliyor…';
+  try{
+    const res=await fetch(f.action,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)});
+    if(!res.ok)throw new Error('http '+res.status);
+    fm.textContent='🎉 Teşekkürler! Mesajınız gönderildi. En kısa sürede size dönüş yapacağız.';
+    fm.classList.add('show');
+    fbtn.textContent='Gönderildi ✓';
+    f.reset();
+    setTimeout(()=>{fbtn.disabled=false;fbtn.textContent='Mesajı Gönder'},2500);
+    fm.scrollIntoView({behavior:'smooth',block:'center'});
+  }catch(err){
+    fm.textContent='⚠️ Mesaj gönderilemedi. Lütfen +90 539 490 18 47 veya @bizimkentfest üzerinden ulaşın.';
+    fm.classList.add('show');
+    fbtn.disabled=false;fbtn.textContent='Mesajı Gönder';
+  }
+});
+</script>
+</body>
+</html>
