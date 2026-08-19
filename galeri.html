@@ -250,5 +250,7 @@ lbPrev.addEventListener('click',e=>{e.stopPropagation();showPhoto(idx-1);});
 lbNext.addEventListener('click',e=>{e.stopPropagation();showPhoto(idx+1);});
 document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLB();else if(e.key==='ArrowLeft')showPhoto(idx-1);else if(e.key==='ArrowRight')showPhoto(idx+1);});
 </script>
+<!-- Vercel Web Analytics -->
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
