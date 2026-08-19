@@ -220,6 +220,18 @@ header{position:sticky;top:0;z-index:900;background:rgba(251,248,241,.82);backdr
 .sp-t{display:flex;flex-direction:column;gap:2px;min-width:0}
 .sp-t span{font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
 .sp-t b{font-size:1rem;font-weight:700;letter-spacing:-.01em}
+a.sp{color:inherit;text-decoration:none;position:relative;transition:transform .2s,box-shadow .2s,border-color .2s;cursor:pointer}
+a.sp::after{content:"↗";position:absolute;top:10px;right:12px;font-size:.95rem;font-weight:700;color:var(--muted);opacity:.45;transition:.2s}
+a.sp:hover{border-color:var(--red);box-shadow:0 12px 26px rgba(0,0,0,.09);transform:translateY(-3px)}
+a.sp:hover::after{color:var(--red);opacity:1}
+a.sp:hover .sp-t b{text-decoration:underline;text-underline-offset:3px}
+a.sp:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+a.sponsor-main{text-decoration:none;color:inherit;position:relative;transition:transform .2s,box-shadow .2s,border-color .2s;cursor:pointer}
+a.sponsor-main::after{content:"Ziyaret et ↗";position:absolute;top:16px;right:20px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);opacity:.6;transition:.2s}
+a.sponsor-main:hover{border-color:var(--red);box-shadow:0 14px 30px rgba(0,0,0,.09);transform:translateY(-3px)}
+a.sponsor-main:hover::after{color:var(--red);opacity:1}
+a.sponsor-main:hover b{text-decoration:underline;text-underline-offset:3px}
+a.sponsor-main:focus-visible{outline:2px solid var(--red);outline-offset:3px}
 
 /* faq */
 .faq{max-width:800px;margin-top:8px}
@@ -511,17 +523,17 @@ footer{background:var(--navy);color:#fff;padding:64px 0 34px;margin-top:40px}
 <section class="sec" id="sponsorlar"><div class="wrap">
   <div class="sec-head reveal"><span class="eyebrow">Sponsorlar</span>
     <h2>Bize <span class="em">güç katanlar</span></h2></div>
-  <div class="sponsor-main reveal">
+  <a class="sponsor-main reveal" href="https://dolmabahce.k12.tr/" target="_blank" rel="noopener">
     <img src="img/SPONSORLAR/dolmabahce-okullari.jpeg" alt="Dolmabahçe Okulları">
     <div><div class="em">Ana Sponsor</div><b>Dolmabahçe Okulları</b><p>Bizimkent FEST, Dolmabahçe Okulları katkılarıyla düzenlenmektedir.</p></div>
-  </div>
+  </a>
   <div class="sp-grid reveal">
-    <div class="sp"><img src="img/SPONSORLAR/as-favori.png" alt="As Favori"><div class="sp-t"><span>Gümüş Sponsor</span><b>As Favori</b></div></div>
-    <div class="sp"><img src="img/SPONSORLAR/arev-okullari.webp" alt="Arev Okulları"><div class="sp-t"><span>Bronz Sponsor</span><b>Arev Okulları</b></div></div>
-    <div class="sp"><img src="img/SPONSORLAR/medicana.png" alt="Medicana"><div class="sp-t"><span>Bronz Sponsor</span><b>Medicana</b></div></div>
-    <div class="sp"><img src="img/SPONSORLAR/ajanslabs.png" alt="AjansLabs"><div class="sp-t"><span>Ajans Sponsoru</span><b>AjansLabs</b></div></div>
-    <div class="sp"><img src="img/SPONSORLAR/bess-photo.jpg" alt="BESS PHOTO"><div class="sp-t"><span>Hizmet Sponsoru</span><b>BESS PHOTO</b></div></div>
-    <div class="sp"><img src="img/bizimkent-dernek-logo.png" alt="Bizimkent Derneği"><div class="sp-t"><span>Organizasyon</span><b>Bizimkent Derneği</b></div></div>
+    <a class="sp" href="https://www.asfavoriasansor.com/" target="_blank" rel="noopener"><img src="img/SPONSORLAR/as-favori.png" alt="As Favori"><div class="sp-t"><span>Gümüş Sponsor</span><b>As Favori</b></div></a>
+    <a class="sp" href="https://www.arevokullari.com/" target="_blank" rel="noopener"><img src="img/SPONSORLAR/arev-okullari.webp" alt="Arev Okulları"><div class="sp-t"><span>Bronz Sponsor</span><b>Arev Okulları</b></div></a>
+    <a class="sp" href="https://www.medicana.com.tr/international-istanbul" target="_blank" rel="noopener"><img src="img/SPONSORLAR/medicana.png" alt="Medicana"><div class="sp-t"><span>Bronz Sponsor</span><b>Medicana</b></div></a>
+    <a class="sp" href="https://www.ajanslabs.com/" target="_blank" rel="noopener"><img src="img/SPONSORLAR/ajanslabs.png" alt="AjansLabs"><div class="sp-t"><span>Ajans Sponsoru</span><b>AjansLabs</b></div></a>
+    <a class="sp" href="https://www.instagram.com/bessphoto66/" target="_blank" rel="noopener"><img src="img/SPONSORLAR/bess-photo.jpg" alt="BESS PHOTO"><div class="sp-t"><span>Hizmet Sponsoru</span><b>BESS PHOTO</b></div></a>
+    <a class="sp" href="https://www.bizimkentdernek.org/" target="_blank" rel="noopener"><img src="img/bizimkent-dernek-logo.png" alt="Bizimkent Derneği"><div class="sp-t"><span>Organizasyon</span><b>Bizimkent Derneği</b></div></a>
   </div>
 </div></section>
 
