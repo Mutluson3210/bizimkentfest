@@ -1,0 +1,6 @@
+
+# Başvuru verileri ve üretilen raporlar (KVKK - kişisel veri içerir)
+*.xlsx
+*.xls
+*.csv
+Bizimkent_FEST_Basvuru_Raporu*.pdf
